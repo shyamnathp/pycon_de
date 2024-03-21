@@ -1,9 +1,15 @@
 # Write a Flet Python application for a contact manager application that has the ability the add, delete and see all the contacts.
 # The contacts should be listed by the name of the person. On clicking the contact in the list, it should show the address, city and mobile number of the person.
 
+# https://flet.dev/docs/controls/expansiontile/#trailing
+#  Icon cross reference does not exits
+
+
+# https://flet.dev/docs/tutorials/python-todo
+# what is the `e` in addclicked(e)
+
 import flet as ft
 from flet import (
-    Checkbox,
     Column,
     FloatingActionButton,
     IconButton,
@@ -16,7 +22,7 @@ from flet import (
     Text,
     ListTile,
     ExpansionTile,
-    TextButton
+    ElevatedButton
 )
 
 
@@ -53,9 +59,23 @@ class DisplayContact(UserControl):
         )
 
 
+class CustomExpansionTile(UserControl):
+    def __init__(self, contact: Contact):
+        super().__init__()
+        self.contact = contact
+
+    def build(self):
+        expansion_tile = ExpansionTile(title=Text(self.contact.name), controls=[DisplayContact(self.contact)],
+                                       trailing=IconButton(icons.DELETE_OUTLINE, on_click=self.delete_clicked))
+        return expansion_tile
+
+    def delete_clicked(self, e):
+        self.page.remove(self)
+
+
 class AddContact(UserControl):
     def __init__(self, contact_dict):
-        print("reach here 1")
+        super().__init__()
         self.contact_dict = contact_dict
 
     def build(self):
@@ -63,14 +83,16 @@ class AddContact(UserControl):
         self.address = TextField(label="Address", icon=icons.LOCATION_CITY)
         self.city = TextField(label="City", icon=icons.LOCATION_CITY)
         self.mobile = TextField(label="Mobile", icon=icons.PHONE)
-        self.submit_button = TextButton(text="Submit", on_click=self.add_contact)
+        submit_button = ElevatedButton(text="Submit", on_click=self.add_contact)
+        cancel_button = ElevatedButton(text="Cancel", on_click=self.close_dlg)
+        self.submit_cancel_button = Row([submit_button, cancel_button])
         return Column(
             [
                 self.name,
                 self.address,
                 self.city,
                 self.mobile,
-                self.submit_button
+                self.submit_cancel_button
             ]
         )
 
@@ -80,12 +102,19 @@ class AddContact(UserControl):
         city = self.city.value
         mobile = self.mobile.value
         self.contact_dict[name] = Contact(name, address, city, mobile)
-        self.page.add(ExpansionTile(title=name, controls=[DisplayContact(self.contact_dict[name])]))
+        # passing a str to name gives the error "AttributeError: 'str' object has no attribute '_set_attr_internal'"
+        self.page.add(CustomExpansionTile(self.contact_dict[name]))
         self.name.value = ""
         self.address.value = ""
         self.city.value = ""
         self.mobile.value = ""
         self.update()
+        self.page.dialog.open = False
+        self.page.update()
+
+    def close_dlg(self, e):
+        self.page.dialog.open = False
+        self.page.update()
 
 
 def main(page: Page):
@@ -97,34 +126,31 @@ def main(page: Page):
                     "Gretchen Little": Contact("Gretchen Little", "Cedar St. 3", "Baltimore", "0311 1823993"),
                     }
 
-    def close_dlg(e):
-        add_dialog.open = False
-        page.update()
-
     add_dialog = ft.AlertDialog(
                                 modal=True,
                                 title=ft.Text("Add new contact"),
-                                content=AddContact(contacts_dict),
-                                actions=[
-                                    ft.TextButton("Cancel", on_click=close_dlg),
-                                ],
-                                actions_alignment=ft.MainAxisAlignment.END,
-                                on_dismiss=lambda e: print("Modal dialog dismissed!"),
+                                content=AddContact(contacts_dict)
                                 )
+
+    # def delete_clicked(e):
+    #     page.remove(e.control)
 
     def add_pressed(e):
         page.dialog = add_dialog
         add_dialog.open = True
         page.update()
 
-    page.floating_action_button = ft.FloatingActionButton(
-        icon=ft.icons.ADD, on_click=add_pressed, bgcolor=ft.colors.LIME_300
+    # delete_tile = IconButton(icons.DELETE_OUTLINE, tooltip="Delete To-Do",
+    #                          on_click=delete_clicked)
+
+    page.floating_action_button = FloatingActionButton(
+        icon=ft.icons.ADD, on_click=add_pressed, bgcolor=colors.LIME_300
     )
 
     # add the contact namees to the list view
     for key in contacts_dict.keys():
         # shyam was passing just contact.name and it errored with `AttributeError: 'str' object has no attribute '_build_add_commands'``
-        page.add(ExpansionTile(title=Text(key), controls=[DisplayContact(contacts_dict[key])]))
+        page.add(CustomExpansionTile(contacts_dict[key]))
 
 
 ft.app(target=main)
