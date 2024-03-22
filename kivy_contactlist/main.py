@@ -2,6 +2,7 @@ from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.floatlayout import MDFloatLayout
 from kivymd.app import MDApp
 from kivy.properties import ListProperty, StringProperty, NumericProperty
+from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
 # from kivy.lang import Builder
 # from kivymd.uix.button import (
 #     MDButton,
@@ -25,11 +26,11 @@ class Contact:
         self.mobile = mobile
 
 
-class ContactView(MDBoxLayout):
-    name = StringProperty()
-    address = StringProperty()
-    city = StringProperty()
-    mobile = StringProperty()
+class ContactView(Screen):
+    co_name = StringProperty()
+    co_address = StringProperty()
+    co_city = StringProperty()
+    co_mobile = StringProperty()
 
 
 class ContactListItem(MDBoxLayout):
@@ -40,7 +41,7 @@ class ContactListItem(MDBoxLayout):
 
 
 # creating the root widget used in .kv file
-class MainWindow(MDBoxLayout):
+class MainWindow(Screen):
     data = ListProperty()
 
 

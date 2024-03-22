@@ -6,6 +6,13 @@
 # Button will be created in Main window Box Layout
 # Geekforgeeks
 
+<Screen>:
+    canvas:
+        Color:
+            rgb: .2, .2, .2
+        Rectangle:
+            size: self.size
+
 <FloatButton@MDFloatLayout>
     size_hint: (None, None)
     text: ''
@@ -114,11 +121,11 @@
 
 # Creation of main window
 <MainWindow>:
-    canvas:
-        Color:
-            rgb: .2, .2, .2
-        Rectangle:
-            size: self.size
+    # canvas:
+    #     Color:
+    #         rgb: .2, .2, .2
+    #     Rectangle:
+    #         size: self.size
 
     MDBoxLayout:
         orientation: 'vertical'
