@@ -1,0 +1,141 @@
+#.kv file implementation of Float Button
+
+
+# using Float Layout for the creation of Floatbutton
+# Here we are creating the properties of button
+# Button will be created in Main window Box Layout
+# Geekforgeeks
+
+<FloatButton@MDFloatLayout>
+    size_hint: (None, None)
+    text: ''
+    btn_size: (70, 70)
+    size: (70, 70)
+    bg_color: (0.404, 0.227, 0.718, 1.0)
+    pos_hint: {'x': .05,}
+
+
+    # Adding shape and all, size, position to button
+    Button:
+        text: root.text
+        markup: True
+        font_size: 40
+        size_hint: (None, None)
+        size: root.btn_size
+        pos_hint: {'x': 9.5, 'y': 0.5}
+        background_normal: ''
+        background_color: (0, 0, 0, 0)
+        canvas.before:
+            Color:
+                rgba: (0.404, 0.227, 0.718, 1.0)
+            Ellipse:
+                size: self.size
+                pos: self.pos
+        on_press: root.on_press()
+
+<ContactView>:
+
+    on_address: app.set_note_content(self.name, self.note_content)
+    on_city: app.set_note_title(self.note_index, self.note_title)
+
+    MDBoxLayout:
+
+        orientation: 'vertical'
+
+        MDBoxLayout:
+
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: '48dp'
+            padding: '5dp'
+
+            canvas:
+                Color:
+                    rgb: .3, .3, .3
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Button:
+                text: '<'
+                size_hint_x: None
+                width: self.height
+                on_release: app.go_notes()
+
+            Label:
+                text: 'Contact Details'
+                font_size: '16sp'
+
+            # Button:
+            #     text: 'X'
+            #     size_hint_x: None
+            #     width: self.height
+            #     on_release: app.del_note(root.note_index)
+
+        # MutableRstDocumentTextInput:
+        #     text: root.note_content
+        #     on_text: root.note_content = self.text
+        Label:
+            id: address_label
+            text: root.address
+
+        Label:
+            id: city_label
+            text: root.city
+
+        Label:
+            id: phone_label
+            text: root.phone
+
+<ContactListItem>:
+    id: contact_list_item
+    height: '48sp'
+    size_hint_y: None
+
+    canvas:
+        Color:
+            rgb: .3, .3, .3
+        Rectangle:
+            pos: self.pos
+            size: self.width, 1
+
+    MDBoxLayout:
+
+        padding: '10dp'
+
+        Label:
+            text: contact_list_item.name
+
+        Button:
+            text: '>'
+            size_hint_x: None
+            width: self.height
+            on_release: app.display_contact(root.name)
+
+# Creation of main window
+<MainWindow>:
+    canvas:
+        Color:
+            rgb: .2, .2, .2
+        Rectangle:
+            size: self.size
+
+    MDBoxLayout:
+        orientation: 'vertical'
+
+        RecycleView:
+            data: root.data
+            viewclass: 'ContactListItem'
+            RecycleBoxLayout:
+                default_size: None, dp(56)
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: 'vertical'
+                spacing: dp(2)
+
+        # Creating the Float button
+        FloatButton:
+            text: '+'
+            markup: True
+            background_color: 1, 0, 1, 0

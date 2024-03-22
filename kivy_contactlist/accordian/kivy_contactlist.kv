@@ -1,0 +1,21 @@
+[CustomAccordionItemTitle@Label]:
+    text: ctx.title
+    normal_background: ctx.item.background_normal if ctx.item.collapse else ctx.item.background_selected
+    disabled_background: ctx.item.background_disabled_normal if ctx.item.collapse else ctx.item.background_disabled_selected
+    canvas.before:
+        Color:
+            rgba: self.disabled_color if self.disabled else self.color
+        BorderImage:
+            source: self.disabled_background if self.disabled else self.normal_background
+            pos: self.pos
+            size: self.size
+        PushMatrix
+        Translate:
+            xy: self.center_x, self.center_y
+        Rotate:
+            angle: 90 if ctx.item.orientation == 'horizontal' else 0
+            axis: 0, 0, 1
+        Translate:
+            xy: -self.center_x, -self.center_y
+    canvas.after:
+        PopMatrix

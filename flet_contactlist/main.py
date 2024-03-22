@@ -118,7 +118,7 @@ class AddContact(UserControl):
 
 
 def main(page: Page):
-    page.title = "ToDo App"
+    page.title = "ConactManager App"
     contacts_dict = {
                     "Angel Hogan": Contact("Angel Hogan", "Chapel St. 368 ", "Clearwater", "0311 1823993"),
                     "Felicia Patton": Contact("Felicia Patton", "Annadale Lane 2", "Knoxville", "0368 1244494"),
