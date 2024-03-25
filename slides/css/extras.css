@@ -1,0 +1,21 @@
+/* Links using the URL as text */
+a.url:before { font-family: monospace; content: attr(href); }
+
+.circle {
+    background: #f00;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    margin:5px;
+    overflow:hidden;
+    padding:25px;
+    position:relative;
+}
+.text{
+  transform:translate(-50%,-50%);
+  position:absolute;
+  top:50%;
+  left:50%;
+}
