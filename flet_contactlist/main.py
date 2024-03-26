@@ -48,12 +48,12 @@ class DisplayContact(UserControl):
             [
                 ListTile(
                     leading=IconButton(icon=icons.LOCATION_CITY),
-                    title=Text(self.contact.address),
-                    subtitle=Text(self.contact.address),
+                    title=Text(self.contact.address, color=colors.BLACK),
+                    subtitle=Text(self.contact.address, color=colors.BLACK),
                 ),
                 ListTile(
                     leading=IconButton(icon=icons.PHONE),
-                    title=Text(self.contact.mobile),
+                    title=Text(self.contact.mobile, color=colors.BLACK),
                 ),
             ]
         )
@@ -66,7 +66,8 @@ class CustomExpansionTile(UserControl):
 
     def build(self):
         expansion_tile = ExpansionTile(title=Text(self.contact.name), controls=[DisplayContact(self.contact)],
-                                       trailing=IconButton(icons.DELETE_OUTLINE, on_click=self.delete_clicked))
+                                       trailing=IconButton(icons.DELETE_OUTLINE, on_click=self.delete_clicked),
+                                       bgcolor=colors.INDIGO_50, text_color=colors.BLACK)
         return expansion_tile
 
     def delete_clicked(self, e):
@@ -118,13 +119,14 @@ class AddContact(UserControl):
 
 
 def main(page: Page):
-    page.title = "ConactManager App"
     contacts_dict = {
                     "Angel Hogan": Contact("Angel Hogan", "Chapel St. 368 ", "Clearwater", "0311 1823993"),
                     "Felicia Patton": Contact("Felicia Patton", "Annadale Lane 2", "Knoxville", "0368 1244494"),
                     "Geraldine Mccoy": Contact("Geraldine Mccoy", "Cedar St. 3", "Baltimore", "0311 1823993"),
                     "Gretchen Little": Contact("Gretchen Little", "Cedar St. 3", "Baltimore", "0311 1823993"),
                     }
+    page.title = "ConactManager App"
+    page.appbar = ft.AppBar(title=ft.Text("Contacts"), bgcolor=colors.INDIGO_300)
 
     add_dialog = ft.AlertDialog(
                                 modal=True,
@@ -132,19 +134,13 @@ def main(page: Page):
                                 content=AddContact(contacts_dict)
                                 )
 
-    # def delete_clicked(e):
-    #     page.remove(e.control)
-
     def add_pressed(e):
         page.dialog = add_dialog
         add_dialog.open = True
         page.update()
 
-    # delete_tile = IconButton(icons.DELETE_OUTLINE, tooltip="Delete To-Do",
-    #                          on_click=delete_clicked)
-
     page.floating_action_button = FloatingActionButton(
-        icon=ft.icons.ADD, on_click=add_pressed, bgcolor=colors.LIME_300
+        icon=ft.icons.ADD, on_click=add_pressed, bgcolor=colors.INDIGO
     )
 
     # add the contact namees to the list view

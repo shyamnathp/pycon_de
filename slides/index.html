@@ -88,11 +88,11 @@
       <section data-auto-animate>
         <h3><i class="yellow">Python</i> 🚫 <i class="android-green">Android</i></h3>
         <div id="left_center">
-          <ul style="font-size: 70%;">
+          <ol style="font-size: 70%;">
             <li>No official support for Android in CPython</li>
             <li>No native support for Python with Android SDK</li>
             <li>The app should bundle the Python binaries</li>
-          </ul>
+          </ol>
         </div>
         <aside class="notes">
           Among the more obvious reasons like native languages like Java and Kotlin are faster, there are other reasons like:
@@ -105,32 +105,189 @@
       <section data-auto-animate>
         <h3><i class="yellow">Python</i> 🚫 <i class="android-green">Android</i></h3>
         <div id="left_center">
-          <ul style="font-size: 70%;">
-            <li><i class="qt-green">No official support for Android in CPython</i></li>
+          <ol style="font-size: 70%;">
+            <li>No official support for Android in CPython</li>
             <li>No native support for Python with Android SDK</li>
             <li>The app should bundle the Python binaries</li>
-          </ul>
+          </ol>
+          <h3> But .... </h3>
         </div>
       </section>
 
       <section data-auto-animate>
-        <h4>No official support for Android in CPython</h4>
-        <div id="left_center" style="font-size: 70%;">
-          PEP 738: Adding Android as a supported platform - Malcolmn Smith
+        <h3><i class="yellow">Python</i> 🫶 <i class="android-green">Android</i></h3>
+        <div id="left_center">
+          <ol style="font-size: 70%;">
+            <li><i class="qt-green">No official support for Android in CPython</i> - <br> <i class="yellow">PEP 738: Adding Android as a supported platform - Malcolmn Smith</i></li>
+            <li><i class="qt-green">No native support for Python with Android SDK</i> - <i class="yellow">Toga, PySide6, PyQt6</i></li>
+            <li><i class="red">The app should bundle the Python binaries</i></li>
+          </ol>
         </div>
       </section>
+
+      <section data-auto-animate>
+        <h3>GUI frameworks with Android support</h3>
+        <div id="left_center">
+          <ol style="font-size: 70%;">
+            <li>Kivy</li>
+            <li>Flet</li>
+            <li>PySide6</li>
+            <li>PyQt6</li>
+            <li>Toga</li>
+          </ol>
+        </div>
+        <aside class="notes">
+          1. You can ofcourse have a webview application with react native frontend and python backend but having a standalone GUI framework helps in unifited development with just using Python.
+          It also enables more fine grained control over UI components and interactions.
+          2. All of these frameworks are cross-platform. If ones task is to develop only an Android appliction, then don't use Python.
+        </aside>
+      </section>
+
+      <section data-auto-animate>
+        <h3>Comparsion with an example</h3>
+        <div id="left_center">
+          <ol style="font-size: 70%;">
+            <li><i class="qt-green">Kivy</i></li>
+            <li><i class="qt-green">Flet</i></li>
+            <li><i class="qt-green">PySide6</i></li>
+            <li>PyQt6</li>
+            <li>Toga</li>
+          </ol>
+        </div>
+        <aside class="notes">
+          1. Ease of learning
+          2. Popularity of the framework
+          3. Community support
+          4. Licensing
+        </aside>
+      </section>
+
+      <section>
+        <h3>Contact Manager Application</h3>
+        <div id="left_center">
+          <ul style="font-size: 70%;">
+            <li>Concise understanding of User Interaction</li>
+            <li>Simple Data Model</li>
+            <li>Event Handling</li>
+            <li>Navigation and Layout</li>
+          </ul>
+        </div>
+        <aside class="notes">
+          Basic concepts of an app are tested.
+          - A contact manager application involves various user interactions such as listing contacts, adding new contacts, and removing existing ones.
+            This allows beginners to understand how user input is handled and how information is displayed on the user interface.
+          - Contacts typically have a straightforward data structure, consisting of fields such as name, phone number, email, etc.
+            Working with such a simple data model enables beginners to focus on learning the GUI framework without getting bogged down by complex data structures.
+          - Interactions such as tapping on a contact to view details or selecting an option to delete a contact require event handling.
+            Implementing these interactions provides beginners with hands-on experience in handling user events and responding to them appropriately.
+          - A contact manager application often involves multiple screens for listing contacts, viewing contact details, and adding or editing contacts.
+            This allows beginners to explore navigation patterns and layout management within the GUI framework.
+        </aside>
+      </section>
+
+      <section>
+        <h3>Flet</h3>
+        <div id="left_center">
+          <ul style="font-size: 70%;">
+            <li>Server-Driven UI framework based on Flutter</li>
+            <li>Minimal API - Fully in Python</li>
+            <li>Deploying as a web app on the browser or a progressive web app (PWA)</li>
+            <li>Super active and responsive community - Discord, Github Discussions, Mailing list etc</li>
+            <li>Apache-2.0 license</li>
+          </ul>
+        </div>
+        <aside class="notes">
+          - new kid in the block, as such no baggage.
+          - increasing content in stackoverflow
+          - Released in 2022
+          - Minimal API making it easier to learn as compared to PySide6 which still adhers to the Qt rules.
+          - How does flet work - uses Flutter behind the scenes to build and package UI clients that communicate with the Python backend and render the UI. It keeps developers away from Flutter clients, they are ready-made and not intended to be changed.
+          - https://flet.dev/docs/guides/python/packaging-app-for-distribution/#how-it-works
+          - https://flet.dev/blog/flet-mobile-strategy#flet-approach
+        </aside>
+      </section>
+
+      <section>
+      <section>
+        <h3>Contact Manager Application - Flet</h3>
+        <div class="image-container">
+          <img src="img/flet_main.png" />
+          <img src="img/flet_expand.png" />
+          <img src="img/flet_add.png" />
+        </div>
+      </section>
+
+      <section>
+        <h3>API</h3>
+        <div id="left">
+        <ul style="font-size: 70%;">
+          <li>Easy to use
+            <pre style="font-size: 50%; width: 100%; text-align: left;">
+              <code data-line-numbers="23|18|15-16|1-3|4-7|8-9|10|11-12" class="python" data-trim data-noescape>
+                  class AddContact(UserControl):
+                  ...
+                  def build(self):
+                      self.name = TextField(label="Name", icon=icons.PERSON)
+                      self.address = TextField(label="Address", icon=icons.LOCATION_CITY)
+                      self.city = TextField(label="City", icon=icons.LOCATION_CITY)
+                      self.mobile = TextField(label="Mobile", icon=icons.PHONE)
+                      submit_button = ElevatedButton(text="Submit", on_click=self.add_contact)
+                      cancel_button = ElevatedButton(text="Cancel", on_click=self.close_dlg)
+                      self.submit_cancel_button = Row([submit_button, cancel_button])
+                      return Column([self.name, self.address, self.city, self.mobile,
+                                    self.submit_cancel_button])
+
+                  ...
+                  add_dialog = ft.AlertDialog(modal=True, title=ft.Text("Add new contact"),
+                                              content=AddContact(contacts_dict))
+
+                  def add_pressed(e):
+                    page.dialog = add_dialog
+                    add_dialog.open = True
+                    page.update()
+
+                  page.floating_action_button = FloatingActionButton(icon=ft.icons.ADD, on_click=add_pressed)
+            </code>
+            </pre>
+          </li>
+        </ul>
+        </div>
+        <aside class="notes">
+          1. Super easy to use - no confusing names, you get what you write
+        </aside>
+      </section>
+
+      <section>
+        <h3>How to deploy?</h3>
+        <div id="left">
+        <ul style="font-size: 70%;">
+          <li>Prerequisites - Flutter SDK</li>
+          <li>Run the command
+            <pre style="font-size: 50%; width: 100%; text-align: left;">
+              <code data-trim data-noescape>
+                flet build apk/aab
+              </code>
+            </pre>
+        </ul>
+        </div>
+        <aside class="notes">
+          - Among other dependencies Flutter SDK is a major prerequisite
+        </aside>
+      </section>
+      </section>
+      <section>
 
       <section data-auto-animate>
         <div id="left" style="position: absolute; bottom: 120px;">
           <img style="width: 30%;" src="img/ISO_C++_Logo.svg.png" />
         </div>
         <div id="right">
-          <ul style="font-size: 70%;">
+          <ol style="font-size: 70%;">
             <li class="fragment">CMake</li>
             <li class="fragment">Preprocessor Directives</li>
             <li class="fragment">Memory Management eg: raw_pointer, unique_pointer, shared_pointer</li>
             <li class="fragment">Templates</li>
-        </ul>
+          </ol>
         </div>
       </section>
 
