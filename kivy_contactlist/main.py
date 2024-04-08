@@ -27,10 +27,10 @@ class Contact:
 
 
 class ContactView(Screen):
-    co_name = StringProperty()
-    co_address = StringProperty()
-    co_city = StringProperty()
-    co_mobile = StringProperty()
+    name = StringProperty()
+    address = StringProperty()
+    city = StringProperty()
+    mobile = StringProperty()
 
 
 class ContactListItem(MDBoxLayout):
@@ -63,10 +63,22 @@ class ContactManager(MDApp):
         # Builder.load_file('contactmanager.kv')
         MainWindow.data = [{'name': contact.name, 'address': contact.address, "city": contact.city, "mobile": contact.mobile}
                            for contact in self.contacts_dict.values()]
-        return MainWindow()
+        return MainWindow(name='contact_list')
 
     def display_contact(self, name):
         contact = self.contacts_dict[name]
+        
+        if self.root.has_screen(name):
+            self.root.remove_widget(self.root.get_screen(name))
+
+        view = ContactView(name=name,
+                           address=contact.address,
+                           city=contact.city,
+                           mobile=contact.mobile)
+
+        self.root.add_widget(view)
+        self.transition.direction = 'left'
+        self.root.current = view.name
 
 
 # run the app
