@@ -208,74 +208,206 @@
       </section>
 
       <section>
+        <section>
+          <h3>Contact Manager Application - Flet</h3>
+          <div class="image-container">
+            <img src="img/flet_main.png" />
+            <img src="img/flet_expand.png" />
+            <img src="img/flet_add.png" />
+          </div>
+        </section>
+
+        <section>
+          <h3>API</h3>
+          <div id="left">
+          <ul style="font-size: 70%;">
+            <li>Easy to use
+              <pre style="font-size: 50%; width: 100%; text-align: left;">
+                <code data-line-numbers="23|18|15-16|1-3|4-7|8-9|10|11-12" class="python" data-trim data-noescape>
+                    class AddContact(UserControl):
+                    ...
+                    def build(self):
+                        self.name = TextField(label="Name", icon=icons.PERSON)
+                        self.address = TextField(label="Address", icon=icons.LOCATION_CITY)
+                        self.city = TextField(label="City", icon=icons.LOCATION_CITY)
+                        self.mobile = TextField(label="Mobile", icon=icons.PHONE)
+                        submit_button = ElevatedButton(text="Submit", on_click=self.add_contact)
+                        cancel_button = ElevatedButton(text="Cancel", on_click=self.close_dlg)
+                        self.submit_cancel_button = Row([submit_button, cancel_button])
+                        return Column([self.name, self.address, self.city, self.mobile,
+                                      self.submit_cancel_button])
+
+                    ...
+                    add_dialog = ft.AlertDialog(modal=True, title=ft.Text("Add new contact"),
+                                                content=AddContact(contacts_dict))
+
+                    def add_pressed(e):
+                      page.dialog = add_dialog
+                      add_dialog.open = True
+                      page.update()
+
+                    page.floating_action_button = FloatingActionButton(icon=ft.icons.ADD, on_click=add_pressed)
+              </code>
+              </pre>
+            </li>
+          </ul>
+          </div>
+          <aside class="notes">
+            1. Super easy to use - no confusing names, you get what you write
+          </aside>
+        </section>
+
+        <section>
+          <h3>How to deploy?</h3>
+          <div id="left">
+          <ul style="font-size: 70%;">
+            <li>Prerequisites - Flutter SDK</li>
+            <li>Run the command
+              <pre style="font-size: 50%; width: 100%; text-align: left;">
+                <code data-trim data-noescape>
+                  flet build apk/aab
+                </code>
+              </pre>
+            </li>
+          </ul>
+          </div>
+          <div id="rightl">
+            <p class="noteBoxes type4" style="font-size: 40%;">
+            <img src="img/lightbulb.svg" class="note-box-icon"/>
+            apk (Android Application Package)- Packaging format <br>
+            aab (Android App Bundle)- Publishing format 
+            </p>
+          </div>
+          <aside class="notes">
+            - Among other dependencies Flutter SDK is a major prerequisite
+          </aside>
+        </section>
+      </section>
+
       <section>
-        <h3>Contact Manager Application - Flet</h3>
+        <h3>PySide6</h3>
+          <div id="left_center">
+          <ul style="font-size: 70%;">
+            <li>Official bindings for the Qt framework</li>
+            <li> 
+              Two ways to create GUIs  
+              <ul style="font-size: 65%;">
+              <li>Qt Widgets - Python and C++</li>
+              <li>Qt Quick - QML and Python/C++</li>
+              </ul>
+            </li>
+            <li>Interactive tool to create designs
+              <ul style="font-size: 65%;">
+                <li>Qt Widgets - Qt Designer</li>
+                <li>Qt Quick - Qt Design Studio</li>
+                </ul>
+            </li>
+            <li>Native feel and look</li>
+            <li>Community Editon(LGPLv3/GPLv3) and Commercial Edition</li>
+          </ul>
+        </div>
+        <aside class="notes">
+          - Qt framework exists since 1995 and is cross-platform. QtQuick was introduced in 2012.
+          - QML is a scripting language. QtQuick is more favoured for mobile devices.
+          - for QML files, the functionality is done with C++ i.e. data classes, adding functionality to buttons etc.
+          - Writing code with QML instead of C++ is more manageable.
+          - QML supports javascript constructs. You can even have javascript code inside QML files.
+        </aside>
+    </section>
+  
+    <section>
+      <section>
+        <h3>Contact Manager Application - PySide</h3>
         <div class="image-container">
           <img src="img/flet_main.png" />
           <img src="img/flet_expand.png" />
           <img src="img/flet_add.png" />
         </div>
       </section>
-
+      
       <section>
         <h3>API</h3>
-        <div id="left">
+        <div id="left70">
         <ul style="font-size: 70%;">
-          <li>Easy to use
+          <li>More features and years of community support
             <pre style="font-size: 50%; width: 100%; text-align: left;">
-              <code data-line-numbers="23|18|15-16|1-3|4-7|8-9|10|11-12" class="python" data-trim data-noescape>
-                  class AddContact(UserControl):
-                  ...
-                  def build(self):
-                      self.name = TextField(label="Name", icon=icons.PERSON)
-                      self.address = TextField(label="Address", icon=icons.LOCATION_CITY)
-                      self.city = TextField(label="City", icon=icons.LOCATION_CITY)
-                      self.mobile = TextField(label="Mobile", icon=icons.PHONE)
-                      submit_button = ElevatedButton(text="Submit", on_click=self.add_contact)
-                      cancel_button = ElevatedButton(text="Cancel", on_click=self.close_dlg)
-                      self.submit_cancel_button = Row([submit_button, cancel_button])
-                      return Column([self.name, self.address, self.city, self.mobile,
-                                    self.submit_cancel_button])
+            <code  data-line-numbers="" data-trim data-noescape>
+              ColumnLayout {
+                id: grid
+                ...
+            
+                TextField {
+                  id: fullName
+                  focus: true
+                  Layout.fillWidth: true
+                  Layout.minimumWidth: grid.minimumInputSize
+                  Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                  placeholderText: qsTr("Full Name")
+                }
+          
+                TextField {
+                    id: address
+                    Layout.fillWidth: true
+                    Layout.minimumWidth: grid.minimumInputSize
+                    Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                    placeholderText: qsTr("Address")
+                }
+                ...
+              }
+            
+              Dialog {
+                id: dialog
+          
+                function createContact() {
+                    form.fullName.clear();
+                    ...
+                    dialog.title = qsTr("Add Contact");
+                    dialog.open();
+                }
 
-                  ...
-                  add_dialog = ft.AlertDialog(modal=True, title=ft.Text("Add new contact"),
-                                              content=AddContact(contacts_dict))
+                contentItem: ContactForm { id: form}
+              }
 
-                  def add_pressed(e):
-                    page.dialog = add_dialog
-                    add_dialog.open = True
-                    page.update()
-
-                  page.floating_action_button = FloatingActionButton(icon=ft.icons.ADD, on_click=add_pressed)
+              RoundButton {
+                text: qsTr("+")
+                highlighted: true
+                anchors.margins: 10
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+                onClicked: {
+                    currentContact = -1
+                    contactDialog.createContact()
+                }
+            }
             </code>
             </pre>
           </li>
         </ul>
         </div>
         <aside class="notes">
-          1. Super easy to use - no confusing names, you get what you write
+          1. You can create custom text field using TextFieldStyle
         </aside>
-      </section>
+      </section> 
 
       <section>
         <h3>How to deploy?</h3>
         <div id="left">
         <ul style="font-size: 70%;">
-          <li>Prerequisites - Flutter SDK</li>
+          <li>Prerequisites - Built custom Android wheels (Soon to go away), buildozer and p4a(kivy)</li>
           <li>Run the command
             <pre style="font-size: 50%; width: 100%; text-align: left;">
               <code data-trim data-noescape>
-                flet build apk/aab
+                pyside6-android-deploy <main.py> --wheels-pydie= --wheel-shiboken-
               </code>
             </pre>
+          </li>
         </ul>
         </div>
         <aside class="notes">
           - Among other dependencies Flutter SDK is a major prerequisite
         </aside>
       </section>
-      </section>
-      <section>
+    </section>
 
       <section data-auto-animate>
         <div id="left" style="position: absolute; bottom: 120px;">
