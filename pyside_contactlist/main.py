@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
+import rc_contactlist  # noqa: F401
 
 from contactmodel import ContactModel  # noqa: F401
 
@@ -22,5 +23,6 @@ if __name__ == '__main__':
 
     if not engine.rootObjects():
         sys.exit(-1)
-        
-    sys.exit(app.exec())
+    ex = app.exec()
+    del engine
+    sys.exit(ex)

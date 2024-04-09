@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/qt/qml/ContactList">
+        <file>icons/delete.svg</file>
+        <file>icons/home.svg</file>
+        <file>icons/phone-call.svg</file>
+    </qresource>
+</RCC>

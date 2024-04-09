@@ -275,7 +275,7 @@
             <p class="noteBoxes type4" style="font-size: 40%;">
             <img src="img/lightbulb.svg" class="note-box-icon"/>
             apk (Android Application Package)- Packaging format <br>
-            aab (Android App Bundle)- Publishing format 
+            aab (Android App Bundle)- Publishing format
             </p>
           </div>
           <aside class="notes">
@@ -288,9 +288,9 @@
         <h3>PySide6</h3>
           <div id="left_center">
           <ul style="font-size: 70%;">
-            <li>Official bindings for the Qt framework</li>
-            <li> 
-              Two ways to create GUIs  
+            <li>Official bindings for the Qt framework (since 1995 😮)</li>
+            <li>
+              Two ways to create GUIs
               <ul style="font-size: 65%;">
               <li>Qt Widgets - Python and C++</li>
               <li>Qt Quick - QML and Python/C++</li>
@@ -312,19 +312,21 @@
           - for QML files, the functionality is done with C++ i.e. data classes, adding functionality to buttons etc.
           - Writing code with QML instead of C++ is more manageable.
           - QML supports javascript constructs. You can even have javascript code inside QML files.
+          - QML files have a .qml extension.
+          - Huge learning curve for Python developers.
         </aside>
     </section>
-  
+
     <section>
       <section>
         <h3>Contact Manager Application - PySide</h3>
         <div class="image-container">
-          <img src="img/flet_main.png" />
-          <img src="img/flet_expand.png" />
-          <img src="img/flet_add.png" />
+          <img src="img/pyside_list.png" />
+          <img src="img/pyside_expand.png" />
+          <img src="img/pyside_add.png" />
         </div>
       </section>
-      
+
       <section>
         <h3>API</h3>
         <div id="left70">
@@ -335,7 +337,7 @@
               ColumnLayout {
                 id: grid
                 ...
-            
+
                 TextField {
                   id: fullName
                   focus: true
@@ -344,7 +346,7 @@
                   Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
                   placeholderText: qsTr("Full Name")
                 }
-          
+
                 TextField {
                     id: address
                     Layout.fillWidth: true
@@ -354,10 +356,10 @@
                 }
                 ...
               }
-            
+
               Dialog {
                 id: dialog
-          
+
                 function createContact() {
                     form.fullName.clear();
                     ...
@@ -386,496 +388,234 @@
         </div>
         <aside class="notes">
           1. You can create custom text field using TextFieldStyle
+          2. You can ofcourse do this directly with widgets in PySide6. The Textfield becomes a QTextField class and you can set the properties directly.
+             But, things like RoundButton that exists in QtQuick does not exists in Widgets. Manually creating it required creating a stylesheet which is a lot of code.
         </aside>
-      </section> 
+      </section>
+
+      <section>
+        <h3>Role of Python?</h3>
+        Loading QML files from Python
+        <pre style="font-size: 50%; width: 100%; text-align: left;">
+          <code data-line-numbers="" class="python" data-trim data-noescape>
+            if __name__ == '__main__':
+              app = QGuiApplication(sys.argv)
+              engine = QQmlApplicationEngine()
+              engine.addImportPath(Path(__file__).parent)
+              engine.loadFromModule("Contact", "ContactList") #loads ContactList.qml
+              if not engine.rootObjects():
+                  sys.exit(-1)
+              ex = app.exec()
+              del engine
+              sys.exit(ex)
+        </code>
+        </pre>
+        Using Python object in QML
+        <div id="left">
+        <pre style="text-align: left;">
+          contactmodel.py
+        </pre>
+        <pre style="font-size: 50%; width: 100%; text-align: left;">
+          <code data-line-numbers="" class="python" data-trim data-noescape>
+            QML_IMPORT_NAME = "Backend"
+            QML_IMPORT_MAJOR_VERSION = 1
+
+
+            @QmlElement
+            class ContactModel(QAbstractListModel):
+            ...
+        </code>
+        </pre>
+        </div>
+        <div id="right">
+        <pre style="text-align: left;">
+        contactview.qml
+        </pre>
+        <pre style="font-size: 50%; width: 100%; text-align: left;">
+          <code data-line-numbers="" class="qml" data-trim data-noescape>
+            import Backend
+
+            ListView {
+                id: listView
+                ....
+                model: ContactModel {
+                    id: contactModel
+                }
+                ....
+              }
+        </code>
+        </pre>
+        </div>
+      </section>
 
       <section>
         <h3>How to deploy?</h3>
-        <div id="left">
         <ul style="font-size: 70%;">
-          <li>Prerequisites - Built custom Android wheels (Soon to go away), buildozer and p4a(kivy)</li>
-          <li>Run the command
-            <pre style="font-size: 50%; width: 100%; text-align: left;">
-              <code data-trim data-noescape>
-                pyside6-android-deploy <main.py> --wheels-pydie= --wheel-shiboken-
-              </code>
-            </pre>
+          <li>Prerequisites
+            <ul style="font-size: 70%;">
+              <li>Built custom Android wheels (Soon to go away)</li>
+              <li>buildozer and python-for-android (kivy)</li>
+              <li>Main entry point is `main.py`</li>
           </li>
         </ul>
-        </div>
+        <li>Run the command
+          <pre style="font-size: 50%; width: 100%; text-align: left;">
+            <code data-trim data-noescape>
+              pyside6-android-deploy --wheels-pydie=`path-to-android-wheel` --wheel-shiboken=`path-to-android-wheel`
+            </code>
+          </pre>
+        </li>
+        </ul>
         <aside class="notes">
           - Among other dependencies Flutter SDK is a major prerequisite
+
         </aside>
       </section>
     </section>
 
-      <section data-auto-animate>
-        <div id="left" style="position: absolute; bottom: 120px;">
-          <img style="width: 30%;" src="img/ISO_C++_Logo.svg.png" />
-        </div>
-        <div id="right">
-          <ol style="font-size: 70%;">
-            <li class="fragment">CMake</li>
-            <li class="fragment">Preprocessor Directives</li>
-            <li class="fragment">Memory Management eg: raw_pointer, unique_pointer, shared_pointer</li>
-            <li class="fragment">Templates</li>
-          </ol>
-        </div>
-      </section>
 
-      <section data-auto-animate>
-        <div id="left" style="position: absolute; bottom: 120px;">
-          <img style="width: 30%;" src="img/ISO_C++_Logo.svg.png" />
-        </div>
-        <div id="left_center">
+    <section>
+      <h3>Kivy</h3>
+      <div id="left_center">
+        <ul style="font-size: 70%;">
+          <li>Popular since 2012</li>
+          <!-- add github stars -->
+          <li>Easy to get started with</li>
+          <li>Two ways to create GUI
+            <ul style="font-size: 65%;">
+              <li>Python code</li>
+              <li>Kv language</li>
+            </ul>
+          </li>
+          <li>More suited for games than tradional applications</li>
+          <li>MIT license</li>
+          <li>Community - Discord, Stackoverflow, Reddit, Github Issue Tracker</li>
+        </ul>
+      </div>
+      <aside class="notes">
+        - Kivy provides robust support for 2D graphics and animations, which are essential for game development. Its graphics engine is optimized for rendering dynamic and visually appealing game scenes with smooth animations, making it well-suited for creating interactive game interfaces.
+        - One of the aims of the Kivy language is to separate the concerns of presentation and logic. The presentation (layout) side is addressed by your .kv file and the logic by your .py file.
+        - Kv language make it simple to separate the interface design from application logic
+        - No material design by default. But KivyMD provides material design components.
+      </aside>
+  </section>
+
+  <section>
+    <section>
+      <h3>Contact Manager Application - PySide</h3>
+      <div class="image-container">
+        <img src="img/pyside_list.png" />
+        <img src="img/pyside_expand.png" />
+        <img src="img/pyside_add.png" />
+      </div>
+    </section>
+
+    <section>
+      <h3>API</h3>
+      <div id="left">
+      Using Kivy and KivyMD
+      <pre style="font-size: 45%; width: 100%; text-align: left;">
+      <code  data-line-numbers="" data-trim data-noescape>
+        <.MainWindow>:
+          MDBoxLayout:
+              orientation: 'vertical'
+              ....
+              # Creating the Float button
+              FloatButton:
+                  text: '+'
+                  markup: True
+                  background_color: 1, 0, 1, 0
+      </code>
+      </pre>
+      </div>
+      <aside class="notes">
+        1. You can create custom text field using TextFieldStyle
+        2. You can ofcourse do this directly with widgets in PySide6. The Textfield becomes a QTextField class and you can set the properties directly.
+           But, things like RoundButton that exists in QtQuick does not exists in Widgets. Manually creating it required creating a stylesheet which is a lot of code.
+        3. No API examples and usage examples. The documentation is not as good as PySide6.
+      </aside>
+    </section>
+
+    <section>
+      <h3>Role of Python?</h3>
+      Loading QML files from Python
+      <pre style="font-size: 50%; width: 100%; text-align: left;">
+        <code data-line-numbers="" class="python" data-trim data-noescape>
+      </code>
+      </pre>
+    </section>
+
+    <section>
+      <h3>How to deploy?</h3>
+      <ul style="font-size: 70%;">
+        <li>Prerequisites
           <ul style="font-size: 70%;">
-            <li>CMake</li>
-            <li>Preprocessor Directives</li>
-            <li>Memory Management eg: raw_pointer, unique_pointer, shared_pointer</li>
-            <li>Templates</li>
-            <li>Design Patterns eg: CRTP, Singleton, Visitor</li>
-            <li>Meta-programming</li>
-            <li>Overload resolution</li>
-            <li>lvalue / rvalue</li>
-          </ul>
-          <p style="color:yellow;font-size: 70%">... and many more</p>
-        </div>
-        <div style="position:fixed;left:51.25%;top:100px;float: right; text-align: right; z-index:-10; width:50%;bottom:150px;">
-          <img style="width: 30%;" src="img/Patrick.gif" />
-        </div>
-      </section>
-
-      <section>
-        <h3><i class="yellow">So</i>, what do we do ? 😶‍🌫️</h3>
-        <p class="fragment"><i class="yellow">Python</i> to the rescue 🐍</p>
-      </section>
-
-      <section>
-        <h2>Python popularity (1/2)</h2>
-        <div id="left">
-          <iframe width="560" height="200" src="https://www.youtube.com/embed/IhxZ99usPqY"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-          </iframe>
-          <iframe width="560" height="200" src="https://www.youtube.com/embed/wOMlDutOWXI"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-          </iframe>
-        </div>
-        <div id="right">
-          <ul style="font-size: 80%;">
-            <li>From a <i class="qt-purple">QtWS2018 talk</i>
-              <ul style="font-size: 80%;">
-                <li>7th Most Popular</li>
-                <li>3rd Most Loved</li>
-                <li>1st Most Wanted 🎉</li>
-                <li>4th Tiobe Index</li>
-              </ul>
-            </li>
-            <li>From a <i class="qt-yellow">2019 QtWebinar</i>
-              <ul style="font-size: 80%;">
-                <li>4th Most Popular 📈</li>
-                <li>2nd Most Loved 📈</li>
-                <li>1st Most Wanted 🎉</li>
-                <li>3rd Tiobe Index 📈</li>
-              </ul>
-            </li>
-          </ul>
-          <p style="font-size: 60%;">(<a href="https://insights.stackoverflow.com/">Stack Overflow Survey</a>)</p>
-        </div>
-      </section>
-
-      <section>
-        <h2>Python popularity (2/2)</h2>
-        <div id="left">
-          The <i class="qt-green">2021 update</i>
-          <ul style="font-size: 70%;">
-            <li>3rd Most Popular 📈</li>
-            <li>6th Most Loved 📉</li>
-            <li>1st Most Wanted 🎉</li>
-            <li>1st Tiobe Index 🎉</li>
-          </ul>
-          <p style="font-size: 50%; border-left: 5px solid white; padding: 10px;">
-            One can argue, those numbers are <i class="red">not really</i> representative.
-          </p>
-        </div>
-        <div id="right">
-          The <i class="qt-green">2022 update</i>
-          <ul style="font-size: 70%;">
-            <li>4rd Most Popular </li>
-            <li>6th Most Loved </li>
-            <li>2nd Most Wanted 📉</li>
-            <li>1st Tiobe Index 🎉</li>
-          </ul>
-          <!-- <p style="font-size: 80%; padding: 10px; background-color: #7c858e44;">But we <i class="red">cannot neglect</i> the impact on fields like <i class="yellow">Data Science</i>,
-            and <i class="yellow">AI</i>, and the many <i class="green">conferences</i> and <i class="green">organizations</i>.</p> -->
-        </div>
-      </section>
-
-      <section>
-        <h3> Applications of <i class="qt-yellow">Python</i> </h3>
-        <div id="center">
-          <img style="width: 70%;" src="img/applications_3.png" />
-        </div>
-      </section>
-
-      <section>
-      <section>
-        <div id="right" style="margin-top: -150px;">
-          <img style="width: 70%;" src="img/c++_python_simpsons.jpg" />
-        </div>
-        <h3>Syntax</h3>
-        <div id="center">
-          <pre style="font-size: 50%; width: 100%; text-align: left;" ><code class="python" data-trim data-noescape>
-            # Python
-            print("Python goes b" + "r"*10)
-          </code></pre>
-          <pre style="font-size: 50%; width: 100%; text-align: left;"><code class="c++" data-trim data-noescape>
-            // C++
-            #include &lt;iostream&gt;
-
-            int main()
-            {
-              std::cout &lt;&lt; "C++ goes b" &lt;&lt;  std::string(10,"r");
-            }
-          </code></pre>
-        </div>
-      </section>
-
-      <section>
-        <div id="center">
-          <pre style="font-size: 50%; width: 100%; text-align: left;" ><code class="python" data-trim data-noescape>
-            # Python
-            name = ["hello", "world"]
-            is_hello = True if "hello" in name else False
-          </code></pre>
-          <pre style="font-size: 50%; width: 100%; text-align: left;"><code class="c++" data-trim data-noescape>
-            // C++
-            auto name = {"hello", "world"}
-            bool is_hello;
-            if (std::find_if(name.begin(), name.end(), "hello"))
-              is_hello = True;
-            else
-              is_hello = False;
-          </code></pre>
-        </div>
-      </section>
-
-      <section>
-        <div id="center">
-          <pre style="font-size: 50%; width: 100%; text-align: left;"><code class="python" data-trim data-noescape>
-            # Python
-
-            # join a list of strings
-            words = ["this", "is", "a", "sentence"]
-            sentence = ' '.join(words)
-          </code></pre>
-          <pre style="font-size: 50%; width: 100%;" class="fragment" data-fragment-index="1"><code class="c++" data-trim data-noescape>
-            //C++
-            auto words = {"This", "is", "a", "sentence"};
-            auto sentence = std::accumulate(words.begin(), words.end(), std::string{});
-            </code></pre>
-        </div>
-      </section>
-      </section>
-
-      <!-- <section>
-        <h3>Syntax(2/2)</h3>
-        <div lass="fragment" id="left">
-          <pre style="font-size: 50%; width: 90%;" class="fragment" data-fragment-index="2"><code class="python" data-trim data-noescape>
-          # Generate a map(dict) from two lists
-          nums = [1, 2, 3]
-          letters = ["A", "B"]
-          num_letters = {num: letter for num, letter in zip(nums, letters)}
-          </code></pre>
-        </div>
-        <div id="right">
-        <pre style="font-size: 50%; width: 100%;" class="fragment" data-fragment-index="2">
-          <code class="c++" data-trim data-noescape>
-          std::vector&lt;int&gt; nums = {1,2,3};
-          std::vector&lt;std::string&gt; letters = {"A", "B", "C"};
-          std::map&lt;int, std::string&gt; num_letters;
-          std::transform(nums.begin(), nums().end(), letters.begin(), std::inserter(num_letters, num_letters.end()), std::make_pair&lt;int, std::string&gt;);
+            <li>Built custom Android wheels (Soon to go away)</li>
+            <li>buildozer and python-for-android (kivy)</li>
+            <li>Main entry point is `main.py`</li>
+        </li>
+      </ul>
+      <li>Run the command
+        <pre style="font-size: 50%; width: 100%; text-align: left;">
+          <code data-trim data-noescape>
+            pyside6-android-deploy --wheels-pydie=`path-to-android-wheel` --wheel-shiboken=`path-to-android-wheel`
           </code>
         </pre>
-        </div>
-      </section> -->
+      </li>
+      </ul>
+      <aside class="notes">
+        - Among other dependencies Flutter SDK is a major prerequisite
 
-      <section>
-        <h3>Relation with <i style="color:#00589D">C++</i></h3>
-        <div id="left">
-          <img style="width: 70%;" src="img/application_2.png" />
-        </div>
-        <div id="right" style="margin-top: 130px;">
-          <ul style="font-size: 70%;">
-            <li>backend in C++</li>
-            <li>used a binding generator for <i class="qt-yellow">Python</i> bindings</li>
-          </ul>
-        </div>
-        <div id="right">
-          <p class="fragment" style="font-size: 85%;">
-            What else has a  <i style="color:#00589D">C++</i> backend ? 💭
-          </p>
-        </div>
-      </section>
+      </aside>
+    </section>
+  </section>
 
-      <section>
-        <h3>Qt for Python</h3>
-        <img style="width: 90%; background: 0; border: 0;" src="img/union.png" />
-      </section>
+  <section data-auto-animate>
+    <h3>Python Packages Support</h3>
+    <!-- <div id="left_center"> -->
+    <p style="font-size: 80%;">
+      Pure Python Packages - Platform Independent
+    </p>
+    <!-- </div> -->
+  </section>
 
-      <section>
-        <h3>What you <i class="qt-purple">might know</i> about Qt for Python</h3>
+  <section data-auto-animate>
+    <h3>Package Support</h3>
+    <p style="font-size: 80%;">
+      Pure Python Packages - Platform Independent
+    </p>
+    <p style="font-size: 80%;">
+      What about Native Python Packages?
+      </p>
+    <aside class="notes">
+      1. Native Python packages are platform dependent. They contain compiled code that is specific to the platform on which they are installed. eg: numpy, pydantic, PySide6
+    </aside>
+  </section>
 
-        <p class="fragment">The official set of <i class="qt-yellow">Python bindings</i> for the Qt framework.</p>
-        <p class="fragment"><i class="qt-green">...but not only that</i> 🤔.</p>
-      </section>
-
-      <section>
-        <h2>Things that <i class="qt-yellow">/maybe/</i> you didn't know 😮</h2>
-        <p class="fragment">Qt for Python <i class="qt-green">is also an application suite</i></p>
-      </section>
-
-      <section>
-        <div id="center">
-          <img style="width: 100%;" src="img/pyside_suite.png" />
-        </div>
-      </section>
-
-      <section>
-        <div class="r-stack">
-        <h3 class="fragment">How do we bring <i class="blue">C++</i> into <i class="qt-yellow">Python</i> world?</h3>
-        <img class="fragment" style="width: 80%;" src="img/pyside_suite_shiboken.png" />
-        </div>
-      </section>
-
-      <section>
-        <img style="width: 90%; background: 0; border: 0;" src="img/process.png" />
-        <div class="fragment" style="float: right; width: 30%;">
-          <iframe width="500" height="200" src="https://www.youtube.com/embed/wOMlDutOWXI" style="position: relative; right: 10px; bottom: 500px; z-index:999;"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-          </iframe>
-          <iframe width="500" height="200" src="https://www.youtube.com/embed/RUwV_sx_gBM" style="position: relative; right: 10px; bottom: 500px; z-index:999;"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-          </iframe>
-          <iframe width="500" height="200" src="https://www.youtube.com/embed/mAfEVPgHRt8" style="position: relative; right: 10px; bottom: 500px; z-index:999;"
-          title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-        </iframe>
-        </div>
-        <p style="font-size: 50%;" class="fragment">More videos: <i class="qt-green">https://doc.qt.io/qtforpython/videos.html</i></p>
-      </section>
-
-      <section>
-        <h3>How do we bring <i class="qt-yellow">Python</i> into <i class="blue">C++</i> world?</h3>
-        <div class="fragment">
-         <iframe src="https://giphy.com/embed/iIqmM5tTjmpOB9mpbn" width="480" height="268" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-         <p>Lets Code 🤖</p>
-        </div>
-      </section>
-
-      <section>
-        <h2>QtScrypt (1/2)</h2>
-        <div id="left">
-          <ul style="font-size: 80%; margin-top: 10%;">
-            <li><i class="qt-yellow">Inspired</i> by QtScript, <i class="red">not</i> a port</li>
-            <li>A <i class="qt-green">dynamic</i> way to interact with Python from C++</li>
-            <li>Enabling Python modules within C++ 🐍</li>
-            <li><i class="qt-purple">proof of concept</i></li>
-          </ul>
-        </div>
-        <div id="right">
-          <pre style="font-size: 50%;width: 100%;"><code class="cpp" data-trim data-noescape>
-
-// Simple Engine
-QScryptEngine e;
-e.execute(...);
-QVariant r = e.evaluate(...);
-
-// Load Python module
-QScryptModule mod(...);
-// Get Function Reference
-QScryptFunction f(..., &amp;mod;);
-
-// Call Function
-QVariantList args;
-QVariant r = f.call(args);
-          </code></pre>
-        </div>
-      </section>
-
-      <section>
-        <h2>QtScrypt (2/2)</h2>
-          <pre style="font-size: 50%;width: 90%;"><code class="cpp" data-trim data-noescape>
-// [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]
-e.execute("print([i**3 for i in range(10)])");
-
-// QVariant(QString, "Hello This Is A Test")
-qDebug() &lt;&lt; e.evaluate("f'hello this is a test'.title()");
-
-//QVariant(double, 4950)
-qDebug() &lt;&lt; e.evaluate("sum(i for i in range(100))")
-
-QScryptModule mod("super"); // super.py
-QScryptFunction f1("add_three_numbers", &amp;mod);
-
-QVariantList args1;
-args1 &lt;&lt; 5 &lt;&lt; 6 &lt;&lt; 9;
-// QVariant(double, 20)
-qDebug() &lt;&lt; f1.call(args1);
-          </code></pre>
-
-      </section>
+  <section data-auto-animate>
+    <h3>Package Support</h3>
+    <p style="font-size: 80%;">
+      What about Native Python Packages?
+    </p>
+  </section>
 
 
-      <section>
-        <h3>What about <i class="yellow">speed</i> ?🏃</h3>
-      </section>
-
-      <section>
-        <h3>Not only <i class="yellow">vanilla</i> Python 🍨</h3>
-        <div id="left30">
-          <img src="img/pypy-logo.svg" />
-          <br/>
-          <p style="font-size: 80%;">
-          <a href="https://pypy.org">https://pypy.org</a>
-          </p>
-        </div>
-        <div id="right70">
-          <ul>
-            <li>Python implementation (in Python)</li>
-            <li>Has a JIT</li>
-            <li>On average 4.2 faster than CPython</li>
-            <li>Mandelbrot Example: 10 times faster than CPython</li>
-          </ul>
-        </div>
-      </section>
-
-      <section>
-        <h3>The <i class="yellow">mandelbrot</i> example</h3>
-        <p style="font-size: 0.5em;"><a href="https://bugreports.qt.io/browse/PYSIDE-535">bugreports.qt.io/browse/PYSIDE-535</a></p>
-        <div id="left">
-          <pre style="width: 90%;font-size: 45%;"><code class="bash" data-trim data-noescape>
-          # Python
-          1/8, max ite: 96, time: 4.111s
-          2/8, max ite: 288, time: 7.179s
-          3/8, max ite: 1056, time: 22.156s
-          4/8, max ite: 4128, time: 82.706s
-          5/8, max ite: 16416, time: 371.348s
-          </code></pre>
-        </div>
-        <div id="right">
-          <pre style="width: 90%;font-size: 45%;"><code class="bash" data-trim data-noescape>
-          # PyPy
-          1/8, max ite: 96, time: 4.732s
-          2/8, max ite: 288, time: 4.99s
-          3/8, max ite: 1056, time: 6.872s
-          4/8, max ite: 4128, time: 12.451s
-          5/8, max ite: 16416, time: 33.341s
-          </code></pre>
-        </div>
-      </section>
-
-      <section>
-        <h3>Deployment 🚢</h3>
-        <div class="fragment">
-        <p>...I hear <i class="blue">Kde</i> likes Flatpak 🧐</p>
-        <img style="width: 150px;" src="img/Flatpak_Logo.svg.png"/>
-        </div>
-      </section>
-
-      <section>
-        <h3>pyside6-<i class="green">deploy</i>(1/2)</h3>
-        <div id="left30">
-          <img src="img/Nuitka_Logo.png" />
-          <br/>
-          <p style="font-size: 80%;">
-          <a href="https://www.nuitka.net/index.html">www.nuitka.net</a>
-          </p>
-        </div>
-        <div style="font-size:90%;" id="right70">
-          <ul>
-            <li>Desktop Deployment</li>
-            <ul>
-              <li>Normally uses Nuitka</li>
-              <li><i class="qt-yellow">But</i>, also supports Flatpak</li>
-           </ul>
-            <li>What is Nuitka?</li>
-            <ul>
-              <li>Python Compiler</li>
-              <li>Translate Python to C -> compiled -> linked</li>
-           </ul>
-          </ul>
-        </div>
-        <div id="right" class="fragment">
-          <p style="text-align: left;font-size: 90%;">
-          Android Deployment:<i class="qt-green">We are working on it</i>
-          </p>
-        </div>
-      </section>
-
-      <section>
-        <h3>pyside6-<i class="green">deploy</i>(2/2)</h3>
-        <p style="font-size:30%;"><i class="red">Needs video change for Flatpak</i></p>
-        <video controls muted data-autoplay src="videos/deploy.mp4"></video>
-      </section>
-
-      <section>
-        <h3>Whats in it for <i class="blue">Kde</i> ?</h3>
-        <div id="left">
-        <ul>
-            <li>Python plugins for <i class="blue">Krita</i> </li>
-            <li>PyFalkon - python bindings for <i class="blue">Falkon</i></li>
-            <li>PySide6 Qml code with <i class="blue">Kirigami</i> and <i class="blue">Plasma</i></li>
-        </ul>
-        </div>
-        <div id="right">
-          <img style="width: 90px;" src="img/plasma-logo-colorful-128x128.png" />
-          <img style="width: 180px;" src="img/krita.png" />
-          <img style="width: 180px;" src="img/falkon.jpeg" />
-        </div>
-      </section>
-
-      <section>
-        <h3>Resources</h3>
-        <ul>
-            <li>Product landing page <a href="https://qt.io/qt-for-python">qt.io/qt-for-python</a></li>
-            <li>Wiki page <a href="https://pyside.org">pyside.org</a></li>
-            <li>Official docs <a href="https://doc.qt.io/qtforpython">doc.qt.io/qtforpython</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h3>Communication channels</h3>
-        <ul style="font-size: 80%;">
-          <li><i class="yellow">Telegram</i> <a href="https://t.me/qtforpython">https://t.me/qtforpython</a></li>
-          <li><i class="yellow">IRC/Matrix</i> #qt-pyside on Libera.chat</li>
-          <li><i class="yellow">Mailing list</i> <a href="http://lists.qt-project.org/mailman/listinfo/pyside">lists.qt-project.org/mailman/listinfo/pyside</a></li>
-        </ul>
-        <p style="font-size: 80%;">
-        More platforms at <a href="https://wiki.qt.io/Qt_for_Python#Community">wiki.qt.io/Qt_for_Python#Community</a>
-        </p>
-        </ul>
-      </section>
-
-      <section>
-        <div id="left">
-          <!-- Fix-me: Change to C++ blue -->
-          <h3>How <i style="color:#00589D">C++</i> and <i class="yellow">Python</i> can strive together</h3>
-          <hr style="width: 70px; border: 1px solid #ff00ff; background-color: #ff00ff; margin-left: 0px;"/>
-        <p style="font-size: 80%;">
-          <i class="qt-green">Shyamnath</i> Premnadh<br/>
-          <img class="clean-img" src="img/github_white.png">
-          <img class="clean-img" src="img/linkedin.png">
-        </p>
-        </div>
-        <div style="width:19% !important" id="right30">
-          <img style="width: 80%;margin-right: 50px;" src="img/python.svg" />
-          <img style="width: 80%;margin-right: 50px;" src="img/ISO_C++_Logo.svg.png" />
-        </div>
-      </section>
+  <section>
+    <div id="left">
+      <!-- Fix-me: Change to C++ blue -->
+      <h3>How <i style="color:#00589D">C++</i> and <i class="yellow">Python</i> can strive together</h3>
+      <hr style="width: 70px; border: 1px solid #ff00ff; background-color: #ff00ff; margin-left: 0px;"/>
+    <p style="font-size: 80%;">
+      <i class="qt-green">Shyamnath</i> Premnadh<br/>
+      <img class="clean-img" src="img/github_white.png">
+      <img class="clean-img" src="img/linkedin.png">
+    </p>
+    </div>
+    <div style="width:19% !important" id="right30">
+      <img style="width: 80%;margin-right: 50px;" src="img/python.svg" />
+      <img style="width: 80%;margin-right: 50px;" src="img/ISO_C++_Logo.svg.png" />
+    </div>
+  </section>
     </div>
   </div>
 

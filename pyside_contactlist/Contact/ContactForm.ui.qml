@@ -16,7 +16,6 @@ ColumnLayout {
         id: fullName
         focus: true
         Layout.fillWidth: true
-        Layout.minimumWidth: grid.minimumInputSize
         Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
         placeholderText: qsTr("Full Name")
     }
@@ -24,33 +23,20 @@ ColumnLayout {
     TextField {
         id: address
         Layout.fillWidth: true
-        Layout.minimumWidth: grid.minimumInputSize
         Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
         placeholderText: qsTr("Address")
     }
 
-    // Label {
-    //     text: qsTr("City")
-    //     Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
-    // }
-
     TextField {
         id: city
         Layout.fillWidth: true
-        Layout.minimumWidth: grid.minimumInputSize
         Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
         placeholderText: qsTr("City")
     }
 
-    // Label {
-    //     text: qsTr("Number")
-    //     Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
-    // }
-
     TextField {
         id: number
         Layout.fillWidth: true
-        Layout.minimumWidth: grid.minimumInputSize
         Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
         placeholderText: qsTr("Number")
     }

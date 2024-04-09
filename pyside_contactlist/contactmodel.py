@@ -33,28 +33,10 @@ class ContactModel(QAbstractListModel):
     def __init__(self, parent=None) -> None:
         super().__init__(parent)
         self.m_contacts = []
-        self.m_contacts.append(self.Contact("Angel Hogan", "Chapel St. 368 ", "Clearwater",
-                                            "0311 1823993"))
-        self.m_contacts.append(self.Contact("Felicia Patton", "Annadale Lane 2", "Knoxville",
-                                            "0368 1244494"))
-        self.m_contacts.append(self.Contact("Grant Crawford", "Windsor Drive 34", "Riverdale",
-                                            "0351 7826892"))
-        self.m_contacts.append(self.Contact("Gretchen Little", "Sunset Drive 348", "Virginia Beach",
-                                            "0343 1234991"))
-        self.m_contacts.append(self.Contact("Geoffrey Richards", "University Lane 54", "Trussville",
-                                            "0423 2144944"))
-        self.m_contacts.append(self.Contact("Henrietta Chavez", "Via Volto San Luca 3",
-                                            "Piobesi Torinese", "0399 2826994"))
-        self.m_contacts.append(self.Contact("Harvey Chandler", "North Squaw Creek 11",
-                                            "Madisonville", "0343 1244492"))
-        self.m_contacts.append(self.Contact("Miguel Gomez", "Wild Rose Street 13", "Trussville",
-                                            "0343 9826996"))
-        self.m_contacts.append(self.Contact("Norma Rodriguez", " Glen Eagles Street  53",
-                                            "Buffalo", "0241 5826596"))
-        self.m_contacts.append(self.Contact("Shelia Ramirez", "East Miller Ave 68", "Pickerington",
-                                            "0346 4844556"))
-        self.m_contacts.append(self.Contact("Stephanie Moss", "Piazza Trieste e Trento 77",
-                                            "Roata Chiusani", "0363 0510490"))
+        self.m_contacts.append(self.Contact("Angel Hogan", "Chapel St. 368 ", "Clearwater", "0311 1823993"))
+        self.m_contacts.append(self.Contact("Felicia Patton", "Annadale Lane 2", "Knoxville", "0368 1244494"))
+        self.m_contacts.append(self.Contact("Geraldine Mccoy", "Cedar St. 3", "Baltimore", "0311 1823993"))
+        self.m_contacts.append(self. Contact("Gretchen Little", "Cedar St. 3", "Baltimore", "0311 1823993"))
 
     def rowCount(self, parent=QModelIndex()):
         return len(self.m_contacts)

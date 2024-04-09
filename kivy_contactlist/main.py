@@ -3,19 +3,14 @@ from kivymd.uix.floatlayout import MDFloatLayout
 from kivymd.app import MDApp
 from kivy.properties import ListProperty, StringProperty, NumericProperty
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
-# from kivy.lang import Builder
-# from kivymd.uix.button import (
-#     MDButton,
-# )
+from kivymd.uix.dialog import MDDialog
+from kivymd.uix.button import MDFlatButton
+# couple of examples are broken in KivyMD
+from kivymd.uix.expansionpanel import MDExpansionPanel, MDExpansionPanelOneLine
+from kivy.core.window import Window
 
 # Floatingactionbutton is by default in Flet. A custom implementation is needed for Kivy. See .kv file
-
 # canvas gives the idea of point, but its basically a container of all the widgets
-
-
-class FloatButton(MDFloatLayout):
-    def on_press(self):
-        print('Floating button pressed')
 
 
 class Contact:
@@ -26,7 +21,7 @@ class Contact:
         self.mobile = mobile
 
 
-class ContactView(Screen):
+class ContactView(MDBoxLayout):
     name = StringProperty()
     address = StringProperty()
     city = StringProperty()
@@ -41,13 +36,17 @@ class ContactListItem(MDBoxLayout):
 
 
 # creating the root widget used in .kv file
-class MainWindow(Screen):
+class MainWindow(MDBoxLayout):
     data = ListProperty()
 
+class AddContactContent(MDBoxLayout):
+    pass
 
 # creating the App class in which name
 # .kv file is to be named main.kv
 class ContactManager(MDApp):
+    dialog = None
+
     def __init__(self, **kwargs):
         super(ContactManager, self).__init__(**kwargs)
         self.contacts_dict = {
@@ -61,24 +60,53 @@ class ContactManager(MDApp):
     def build(self):
         # returning the instance of root class
         # Builder.load_file('contactmanager.kv')
-        MainWindow.data = [{'name': contact.name, 'address': contact.address, "city": contact.city, "mobile": contact.mobile}
-                           for contact in self.contacts_dict.values()]
-        return MainWindow(name='contact_list')
+        self.theme_cls.theme_style = "Dark"
+        Window.bind(on_keyboard=self.adjust_dialog_position)
+        self.main_window = MainWindow()
+        self.main_window.data = [{'name': contact.name, 'address': contact.address, "city": contact.city, "mobile": contact.mobile}
+                                 for contact in self.contacts_dict.values()]
+        # self.transition = SlideTransition(duration=.35)
+        # self.root = ScreenManager(transition=self.transition)
+        # self.root.add_widget(self.main_window)
+        return self.main_window
 
-    def display_contact(self, name):
-        contact = self.contacts_dict[name]
-        
-        if self.root.has_screen(name):
-            self.root.remove_widget(self.root.get_screen(name))
+    def adjust_dialog_position(self, window, keyboard_height, *args):
+        if keyboard_height > 0:
+            # If the keyboard is visible, move the dialog up
+            if self.dialog:
+                self.dialog.pos_hint = {"center_y": 0.5 + keyboard_height / Window.height}
+        else:
+            # If the keyboard is not visible, center the dialog
+            if self.dialog:
+                self.dialog.pos_hint = {"center_y": 0.5}
 
-        view = ContactView(name=name,
-                           address=contact.address,
-                           city=contact.city,
-                           mobile=contact.mobile)
+    def on_start(self):
+        for contact in self.contacts_dict.values():
+            # Note: Having a delete button is a hard task
+            self.main_window.ids.contact_list.add_widget(MDExpansionPanel(icon="account",
+                                                                          content=ContactView(name=contact.name, address=contact.address, city=contact.city, mobile=contact.mobile),
+                                                                          panel_cls=MDExpansionPanelOneLine(text=contact.name)))
 
-        self.root.add_widget(view)
-        self.transition.direction = 'left'
-        self.root.current = view.name
+    def add_contact_dialog(self):
+        self.dialog = MDDialog(title="Add Contact",
+                          type="custom",
+                          content_cls=AddContactContent(),
+                          buttons=[
+                                MDFlatButton(
+                                    text="CANCEL",
+                                    theme_text_color="Custom",
+                                    text_color=self.theme_cls.primary_color,
+                                    on_release=lambda x: self.dialog.dismiss()
+                                ),
+                                MDFlatButton(
+                                    text="OK",
+                                    theme_text_color="Custom",
+                                    text_color=self.theme_cls.primary_color,
+                                    on_release=lambda x: self.add_contact()
+                                ),
+                            ],
+                         )
+        self.dialog.open()
 
 
 # run the app

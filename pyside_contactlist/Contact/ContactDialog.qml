@@ -37,6 +37,20 @@ Dialog {
     title: qsTr("Add Contact")
     standardButtons: Dialog.Ok | Dialog.Cancel
 
+    Component.onCompleted: {
+        Qt.inputMethod.visibleChanged.connect(adjustDialogPosition)
+    }
+
+    function adjustDialogPosition() {
+        if (Qt.inputMethod.visible) {
+            // If the keyboard is visible, move the dialog up
+            dialog.y = parent.height / 4 - height / 2
+        } else {
+            // If the keyboard is not visible, center the dialog
+            dialog.y = parent.height / 2 - height / 2
+        }
+    }
+
     contentItem: ContactForm {
         id: form
     }

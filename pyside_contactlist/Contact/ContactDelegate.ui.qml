@@ -4,28 +4,33 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import QtQuick.Controls.Material
 
 ItemDelegate {
     id: delegate
     checkable: true
+    width: parent.width
 
-    contentItem: ColumnLayout {
+    contentItem:
+    ColumnLayout {
         spacing: 15
 
         RowLayout{
-            id: rowitem 
+            id: rowitem
             spacing: 15
 
             Label {
                 id: nameLabel
+                font.pixelSize: 14
                 text: fullName
-                font.bold: true
                 elide: Text.ElideRight
                 Layout.fillWidth: true
+                color: Material.primaryTextColor
             }
 
             ToolButton {
-                icon.source: `/home/shyamnath/qt_for_python/shyam/pycon_de/pyside_contactlist/icons/delete.svg`
+                icon.source: `qrc:/qt/qml/ContactList/icons/delete.svg`
+                enabled: true
                 onClicked: contactView.model.remove(index)
             }
         }
@@ -35,41 +40,36 @@ ItemDelegate {
             visible: false
 
             columns: 2
-            rowSpacing: 10
+            rowSpacing: 1
             columnSpacing: 10
 
-            Label {
-                text: qsTr("Address:")
-                Layout.leftMargin: 60
+            ToolButton {
+                icon.source: `qrc:/qt/qml/ContactList/icons/home.svg`
+                enabled: true
             }
 
-            Label {
-                text: address
-                font.bold: true
-                elide: Text.ElideRight
-                Layout.fillWidth: true
+            ColumnLayout{
+                spacing: 5
+                Label {
+                    text: address
+                    elide: Text.ElideRight
+                    Layout.fillWidth: true
+                }
+
+                Label {
+                    text: city
+                    elide: Text.ElideRight
+                    Layout.fillWidth: true
+                }
             }
 
-            Label {
-                text: qsTr("City:")
-                Layout.leftMargin: 60
-            }
-
-            Label {
-                text: city
-                font.bold: true
-                elide: Text.ElideRight
-                Layout.fillWidth: true
-            }
-
-            Label {
-                text: qsTr("Number:")
-                Layout.leftMargin: 60
+            ToolButton {
+                icon.source: `qrc:/qt/qml/ContactList/icons/phone-call.svg`
+                enabled: true
             }
 
             Label {
                 text: number
-                font.bold: true
                 elide: Text.ElideRight
                 Layout.fillWidth: true
             }

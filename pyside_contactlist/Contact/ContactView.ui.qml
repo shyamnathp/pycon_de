@@ -7,6 +7,7 @@ import Backend
 
 ListView {
     id: listView
+    anchors.fill: parent
 
     signal pressAndHold(int index)
 
@@ -15,12 +16,6 @@ ListView {
 
     focus: true
     boundsBehavior: Flickable.StopAtBounds
-
-    // section.property: "fullName"
-    // // section.criteria: ViewSection.FirstCharacter
-    // section.delegate: SectionDelegate {
-    //     width: listView.width
-    // }
 
     delegate: ContactDelegate {
         id: delegate

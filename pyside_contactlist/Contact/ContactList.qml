@@ -3,9 +3,14 @@
 
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Controls.Material
 
 ApplicationWindow {
     id: window
+    Material.theme: Material.Dark
+    Material.accent: Material.Gray
+    // Material.primary: "#CE93D8"
 
     property int currentContact: -1
 
@@ -13,6 +18,24 @@ ApplicationWindow {
     height: 480
     visible: true
     title: qsTr("Contact List")
+
+    header: ToolBar {
+        RowLayout {
+            width: parent.width
+            height: 70
+            Label {
+                text: "ContactManager"
+                font.pixelSize: 17
+                elide: Label.ElideRight
+                horizontalAlignment: Qt.AlignHCenter
+                verticalAlignment: Qt.AlignVCenter
+                Layout.fillWidth: true
+            }
+        }
+        // background: Rectangle {
+        //     color: "#7886CB"
+        // }
+    }
 
     ContactDialog {
         id: contactDialog
@@ -59,6 +82,9 @@ ApplicationWindow {
     RoundButton {
         text: qsTr("+")
         highlighted: true
+        Material.elevation: 6
+        width: Screen.width * 0.2
+        height: width
         anchors.margins: 10
         anchors.right: parent.right
         anchors.bottom: parent.bottom

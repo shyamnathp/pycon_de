@@ -1,5 +1,6 @@
 {
     "files": ["main.py",
+              "rc_contactlist.py"
               "contactmodel.py",
               "Contact/ContactDialog.qml",
               "Contact/ContactDelegate.ui.qml",
