@@ -45,6 +45,14 @@
           <img style="width: 80%;margin-right: 50px;" src="img/python.svg" />
           <img style="width: 80%;margin-right: 50px;" src="img/Android_Robot.png" />
         </div>
+        <aside class="notes">
+          I am guessing that some of you develop GUI applications and surely you are all Python developers.
+          You want to develop a cross-platform application with Desktop and Android support.
+          You being a Python developer would like a GUI Python framework to do it.
+          This talk gives a general overview of the current status of Python ecosystem in supporting Android and
+          a comparison of three of the Python GUI frameworks that support Android. The comparsion is done with developing a simple Contact Manager application.
+          Hopefully at the end of this talk you will have a better understanding of the Python GUI frameworks that support Android and which one to choose for your next project.
+        </aside>
       </section>
       <!--***************************************************************************-->
 
@@ -65,6 +73,10 @@
             <img src="img/qt_green.png" />
           </p>
         </div>
+        <aside class="notes">
+          Unbaised opinion about the frameworks
+          Althought in Qt, I have never developed a GUI application. I will be specially focusing on how easy it was for me as beginner to get started with some of these frameworks.
+        </aside>
       </section>
 
       <section>
@@ -73,15 +85,14 @@
       </section>
 
       <section>
-        <h3>Is <i class="yellow">Python</i> a good alternative for Android development? 🤔</h3>
+        <h3>Is <i class="yellow">Python</i> a good alternative for Java/Kotlin for <i class="android-green">Android</i> development? 🤔</h3>
         <h4 class="fragment" style="text-align: center;">
           Currently, <i class="yellow">NO</i>
         </h4>
-        <h4 class="fragment" style="text-align: center;">
-          But, why? 🤷‍♂️
-        </h4>
+        <img class="fragment" style="width: 30%;" src="img/but_why.gif" />
         <aside class="notes">
           Python is the most popular language. But, it is not the best choice for Android development.
+          As most of you know already, Android is the OS that is most used in the world.
         </aside>
       </section>
 
@@ -126,9 +137,9 @@
       </section>
 
       <section data-auto-animate>
-        <h3>GUI frameworks with Android support</h3>
+        <h3><i class="orange">GUI</i> frameworks with <i class="android-green">Android</i> support</h3>
         <div id="left_center">
-          <ol style="font-size: 70%;">
+          <ol style="font-size: 90%;">
             <li>Kivy</li>
             <li>Flet</li>
             <li>PySide6</li>
@@ -146,10 +157,19 @@
       <section data-auto-animate>
         <h3>Comparsion with an example</h3>
         <div id="left_center">
-          <ol style="font-size: 70%;">
-            <li><i class="qt-green">Kivy</i></li>
-            <li><i class="qt-green">Flet</i></li>
-            <li><i class="qt-green">PySide6</i></li>
+          <ol style="font-size: 90%;">
+            <li>
+              <i class="qt-green">Kivy</i>
+              <img style="width:35px; vertical-align:middle;" src="img/kivy_logo.png" />
+            </li>
+            <li>
+              <i class="qt-green">Flet</i>
+              <img style="width:35px; vertical-align:middle;" src="img/flet.png" />
+            </li>
+            <li>
+              <i class="qt-green">PySide6</i>
+              <img style="width:35px; vertical-align:middle;" src="img/qtforpython.png" />
+            </li>
             <li>PyQt6</li>
             <li>Toga</li>
           </ol>
@@ -186,28 +206,28 @@
       </section>
 
       <section>
-        <h3>Flet</h3>
-        <div id="left_center">
-          <ul style="font-size: 70%;">
-            <li>Server-Driven UI framework based on Flutter</li>
-            <li>Minimal API - Fully in Python</li>
-            <li>Deploying as a web app on the browser or a progressive web app (PWA)</li>
-            <li>Super active and responsive community - Discord, Github Discussions, Mailing list etc</li>
-            <li>Apache-2.0 license</li>
-          </ul>
-        </div>
-        <aside class="notes">
-          - new kid in the block, as such no baggage.
-          - increasing content in stackoverflow
-          - Released in 2022
-          - Minimal API making it easier to learn as compared to PySide6 which still adhers to the Qt rules.
-          - How does flet work - uses Flutter behind the scenes to build and package UI clients that communicate with the Python backend and render the UI. It keeps developers away from Flutter clients, they are ready-made and not intended to be changed.
-          - https://flet.dev/docs/guides/python/packaging-app-for-distribution/#how-it-works
-          - https://flet.dev/blog/flet-mobile-strategy#flet-approach
-        </aside>
-      </section>
+        <section>
+          <h3>Flet</h3>
+          <div id="left_center">
+            <ul style="font-size: 70%;">
+              <li>Server-Driven UI framework based on Flutter</li>
+              <li>Minimal API - Fully in Python</li>
+              <li>Deploying as a web app on the browser or a progressive web app (PWA)</li>
+              <li>Super active and responsive community - Discord, Github Discussions, Mailing list etc</li>
+              <li>Apache-2.0 license</li>
+            </ul>
+          </div>
+          <aside class="notes">
+            - new kid in the block, as such no baggage.
+            - increasing content in stackoverflow
+            - Released in 2023
+            - Minimal API making it easier to learn as compared to PySide6 which still adhers to the Qt rules.
+            - How does flet work - uses Flutter behind the scenes to build and package UI clients that communicate with the Python backend and render the UI. It keeps developers away from Flutter clients, they are ready-made and not intended to be changed.
+            - https://flet.dev/docs/guides/python/packaging-app-for-distribution/#how-it-works
+            - https://flet.dev/blog/flet-mobile-strategy#flet-approach
+          </aside>
+        </section>
 
-      <section>
         <section>
           <h3>Contact Manager Application - Flet</h3>
           <div class="image-container">
@@ -282,214 +302,53 @@
             - Among other dependencies Flutter SDK is a major prerequisite
           </aside>
         </section>
-      </section>
 
-      <section>
-        <h3>PySide6</h3>
-          <div id="left_center">
-          <ul style="font-size: 70%;">
-            <li>Official bindings for the Qt framework (since 1995 😮)</li>
-            <li>
-              Two ways to create GUIs
-              <ul style="font-size: 65%;">
-              <li>Qt Widgets - Python and C++</li>
-              <li>Qt Quick - QML and Python/C++</li>
-              </ul>
-            </li>
-            <li>Interactive tool to create designs
-              <ul style="font-size: 65%;">
-                <li>Qt Widgets - Qt Designer</li>
-                <li>Qt Quick - Qt Design Studio</li>
-                </ul>
-            </li>
-            <li>Native feel and look</li>
-            <li>Community Editon(LGPLv3/GPLv3) and Commercial Edition</li>
+        <section>
+          <h3>Pros and Cons - Flet</h3>
+          <h5>Pros</h5>
+          <ul>
+            <li>More modern UI</li>
+            <li>Easy to get started with</li>
+            <li>Minimal API, but hightly customizable</li>
+            <li>Cross-platform + WebAssembly</li>
+            <li>Super active and responsive community</li>
+            <li>Apache-2.0</li>
           </ul>
-        </div>
-        <aside class="notes">
-          - Qt framework exists since 1995 and is cross-platform. QtQuick was introduced in 2012.
-          - QML is a scripting language. QtQuick is more favoured for mobile devices.
-          - for QML files, the functionality is done with C++ i.e. data classes, adding functionality to buttons etc.
-          - Writing code with QML instead of C++ is more manageable.
-          - QML supports javascript constructs. You can even have javascript code inside QML files.
-          - QML files have a .qml extension.
-          - Huge learning curve for Python developers.
-        </aside>
-    </section>
-
-    <section>
-      <section>
-        <h3>Contact Manager Application - PySide</h3>
-        <div class="image-container">
-          <img src="img/pyside_list.png" />
-          <img src="img/pyside_expand.png" />
-          <img src="img/pyside_add.png" />
-        </div>
+          <h5>Cons</h5>
+          <ul>
+            <li>Still very new</li>
+            <li>Limited resources online</li>
+            <li>Not as mature as PySide6 and Kivy</li>
+          </ul>
+          <aside class="notes">
+            1. Flet allows Publishing your app as static or dynamic website
+            Cons:
+            1. The first release of Flet was in Jan 2023. It is still very new and lacks the maturity of PySide6 and Kivy.
+            2. Not all flutter widgets are supported by Flet. Integrating existing flutter widgets is tricky.
+            3. PySide6 has 3D support that Flet lacks.
+            4. 223 questions on stackoverflow
+          </aside>
+        </section>
       </section>
 
-      <section>
-        <h3>API</h3>
-        <div id="left70">
-        <ul style="font-size: 70%;">
-          <li>More features and years of community support
-            <pre style="font-size: 50%; width: 100%; text-align: left;">
-            <code  data-line-numbers="" data-trim data-noescape>
-              ColumnLayout {
-                id: grid
-                ...
-
-                TextField {
-                  id: fullName
-                  focus: true
-                  Layout.fillWidth: true
-                  Layout.minimumWidth: grid.minimumInputSize
-                  Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
-                  placeholderText: qsTr("Full Name")
-                }
-
-                TextField {
-                    id: address
-                    Layout.fillWidth: true
-                    Layout.minimumWidth: grid.minimumInputSize
-                    Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
-                    placeholderText: qsTr("Address")
-                }
-                ...
-              }
-
-              Dialog {
-                id: dialog
-
-                function createContact() {
-                    form.fullName.clear();
-                    ...
-                    dialog.title = qsTr("Add Contact");
-                    dialog.open();
-                }
-
-                contentItem: ContactForm { id: form}
-              }
-
-              RoundButton {
-                text: qsTr("+")
-                highlighted: true
-                anchors.margins: 10
-                anchors.right: parent.right
-                anchors.bottom: parent.bottom
-                onClicked: {
-                    currentContact = -1
-                    contactDialog.createContact()
-                }
-            }
-            </code>
-            </pre>
-          </li>
-        </ul>
-        </div>
-        <aside class="notes">
-          1. You can create custom text field using TextFieldStyle
-          2. You can ofcourse do this directly with widgets in PySide6. The Textfield becomes a QTextField class and you can set the properties directly.
-             But, things like RoundButton that exists in QtQuick does not exists in Widgets. Manually creating it required creating a stylesheet which is a lot of code.
-        </aside>
-      </section>
-
-      <section>
-        <h3>Role of Python?</h3>
-        Loading QML files from Python
-        <pre style="font-size: 50%; width: 100%; text-align: left;">
-          <code data-line-numbers="" class="python" data-trim data-noescape>
-            if __name__ == '__main__':
-              app = QGuiApplication(sys.argv)
-              engine = QQmlApplicationEngine()
-              engine.addImportPath(Path(__file__).parent)
-              engine.loadFromModule("Contact", "ContactList") #loads ContactList.qml
-              if not engine.rootObjects():
-                  sys.exit(-1)
-              ex = app.exec()
-              del engine
-              sys.exit(ex)
-        </code>
-        </pre>
-        Using Python object in QML
-        <div id="left">
-        <pre style="text-align: left;">
-          contactmodel.py
-        </pre>
-        <pre style="font-size: 50%; width: 100%; text-align: left;">
-          <code data-line-numbers="" class="python" data-trim data-noescape>
-            QML_IMPORT_NAME = "Backend"
-            QML_IMPORT_MAJOR_VERSION = 1
-
-
-            @QmlElement
-            class ContactModel(QAbstractListModel):
-            ...
-        </code>
-        </pre>
-        </div>
-        <div id="right">
-        <pre style="text-align: left;">
-        contactview.qml
-        </pre>
-        <pre style="font-size: 50%; width: 100%; text-align: left;">
-          <code data-line-numbers="" class="qml" data-trim data-noescape>
-            import Backend
-
-            ListView {
-                id: listView
-                ....
-                model: ContactModel {
-                    id: contactModel
-                }
-                ....
-              }
-        </code>
-        </pre>
-        </div>
-      </section>
-
-      <section>
-        <h3>How to deploy?</h3>
-        <ul style="font-size: 70%;">
-          <li>Prerequisites
-            <ul style="font-size: 70%;">
-              <li>Built custom Android wheels (Soon to go away)</li>
-              <li>buildozer and python-for-android (kivy)</li>
-              <li>Main entry point is `main.py`</li>
-          </li>
-        </ul>
-        <li>Run the command
-          <pre style="font-size: 50%; width: 100%; text-align: left;">
-            <code data-trim data-noescape>
-              pyside6-android-deploy --wheels-pydie=`path-to-android-wheel` --wheel-shiboken=`path-to-android-wheel`
-            </code>
-          </pre>
-        </li>
-        </ul>
-        <aside class="notes">
-          - Among other dependencies Flutter SDK is a major prerequisite
-
-        </aside>
-      </section>
-    </section>
-
-
+  <section>
     <section>
       <h3>Kivy</h3>
       <div id="left_center">
         <ul style="font-size: 70%;">
-          <li>Popular since 2012</li>
+          <li>Since 2012</li>
           <!-- add github stars -->
           <li>Easy to get started with</li>
           <li>Two ways to create GUI
-            <ul style="font-size: 65%;">
+            <ul style="font-size: 85%;">
               <li>Python code</li>
               <li>Kv language</li>
             </ul>
           </li>
           <li>More suited for games than tradional applications</li>
-          <li>MIT license</li>
-          <li>Community - Discord, Stackoverflow, Reddit, Github Issue Tracker</li>
+          <li>KivyMD for Material Design</li>
+          <!-- <li>MIT license</li>
+          <li>Community - Discord, Stackoverflow, Reddit, Github Issue Tracker</li> -->
         </ul>
       </div>
       <aside class="notes">
@@ -500,13 +359,12 @@
       </aside>
   </section>
 
-  <section>
     <section>
-      <h3>Contact Manager Application - PySide</h3>
+      <h3>Contact Manager Application - Kivy</h3>
       <div class="image-container">
-        <img src="img/pyside_list.png" />
-        <img src="img/pyside_expand.png" />
-        <img src="img/pyside_add.png" />
+        <img src="img/kivy_list.png" />
+        <img src="img/kivy_expand.png" />
+        <img src="img/kivy_add.png" />
       </div>
     </section>
 
@@ -562,12 +420,225 @@
           </code>
         </pre>
       </li>
+      What is the app size?
+      </ul>
+      <aside class="notes">
+        - Among other dependencies Flutter SDK is a major prerequisite
+      </aside>
+    </section>
+
+    <section>
+      <h3>Pros and Cons - Kivy</h3>
+    </section>
+  </section>
+
+  <section>
+    <section>
+      <h3>PySide6</h3>
+        <div id="left_center">
+        <ul style="font-size: 70%;">
+          <li>Official bindings for the Qt framework (since 1995 😮)</li>
+          <li>
+            Two ways to create GUIs
+            <ul style="font-size: 65%;">
+            <li>Qt Widgets - Python and C++</li>
+            <li>Qt Quick - QML and Python/C++</li>
+            </ul>
+          </li>
+          <li>Interactive tool to create designs
+            <ul style="font-size: 65%;">
+              <li>Qt Widgets - Qt Designer</li>
+              <li>Qt Quick - Qt Design Studio</li>
+              </ul>
+          </li>
+          <li>Native feel and look</li>
+          <li>Community Editon(LGPLv3/GPLv3) and Commercial Edition</li>
+        </ul>
+      </div>
+      <aside class="notes">
+        - Qt framework exists since 1995 and is cross-platform. QtQuick was introduced in 2012.
+        - QML is a scripting language. QtQuick is more favoured for mobile devices.
+        - for QML files, the functionality is done with C++ i.e. data classes, adding functionality to buttons etc.
+        - Writing code with QML instead of C++ is more manageable.
+        - QML supports javascript constructs. You can even have javascript code inside QML files.
+        - QML files have a .qml extension.
+        - Huge learning curve for Python developers.
+      </aside>
+  </section>
+
+    <section>
+      <h3>Contact Manager Application - PySide</h3>
+      <div class="image-container">
+        <img src="img/pyside_list.png" />
+        <img src="img/pyside_expand.png" />
+        <img src="img/pyside_add.png" />
+      </div>
+    </section>
+
+    <section>
+      <h3>API</h3>
+      <div id="left70">
+      <ul style="font-size: 70%;">
+        <li>More features and years of community support
+          <pre style="font-size: 50%; width: 100%; text-align: left;">
+          <code  data-line-numbers="" data-trim data-noescape>
+            ColumnLayout {
+              id: grid
+              ...
+
+              TextField {
+                id: fullName
+                focus: true
+                Layout.fillWidth: true
+                Layout.minimumWidth: grid.minimumInputSize
+                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                placeholderText: qsTr("Full Name")
+              }
+
+              TextField {
+                  id: address
+                  Layout.fillWidth: true
+                  Layout.minimumWidth: grid.minimumInputSize
+                  Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                  placeholderText: qsTr("Address")
+              }
+              ...
+            }
+
+            Dialog {
+              id: dialog
+
+              function createContact() {
+                  form.fullName.clear();
+                  ...
+                  dialog.title = qsTr("Add Contact");
+                  dialog.open();
+              }
+
+              contentItem: ContactForm { id: form}
+            }
+
+            RoundButton {
+              text: qsTr("+")
+              highlighted: true
+              anchors.margins: 10
+              anchors.right: parent.right
+              anchors.bottom: parent.bottom
+              onClicked: {
+                  currentContact = -1
+                  contactDialog.createContact()
+              }
+          }
+          </code>
+          </pre>
+        </li>
+      </ul>
+      </div>
+      <aside class="notes">
+        1. You can create custom text field using TextFieldStyle
+        2. You can ofcourse do this directly with widgets in PySide6. The Textfield becomes a QTextField class and you can set the properties directly.
+           But, things like RoundButton that exists in QtQuick does not exists in Widgets. Manually creating it required creating a stylesheet which is a lot of code.
+      </aside>
+    </section>
+
+    <section>
+      <h3>Role of Python?</h3>
+      Loading QML files from Python
+      <pre style="font-size: 50%; width: 100%; text-align: left;">
+        <code data-line-numbers="" class="python" data-trim data-noescape>
+          if __name__ == '__main__':
+            app = QGuiApplication(sys.argv)
+            engine = QQmlApplicationEngine()
+            engine.addImportPath(Path(__file__).parent)
+            engine.loadFromModule("Contact", "ContactList") #loads ContactList.qml
+            if not engine.rootObjects():
+                sys.exit(-1)
+            ex = app.exec()
+            del engine
+            sys.exit(ex)
+      </code>
+      </pre>
+      Using Python object in QML
+      <div id="left">
+      <pre style="text-align: left;">
+        contactmodel.py
+      </pre>
+      <pre style="font-size: 50%; width: 100%; text-align: left;">
+        <code data-line-numbers="" class="python" data-trim data-noescape>
+          QML_IMPORT_NAME = "Backend"
+          QML_IMPORT_MAJOR_VERSION = 1
+
+
+          @QmlElement
+          class ContactModel(QAbstractListModel):
+          ...
+      </code>
+      </pre>
+      </div>
+      <div id="right">
+      <pre style="text-align: left;">
+      contactview.qml
+      </pre>
+      <pre style="font-size: 50%; width: 100%; text-align: left;">
+        <code data-line-numbers="" class="qml" data-trim data-noescape>
+          import Backend
+
+          ListView {
+              id: listView
+              ....
+              model: ContactModel {
+                  id: contactModel
+              }
+              ....
+            }
+      </code>
+      </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3>How to deploy?</h3>
+      <ul style="font-size: 70%;">
+        <li>Prerequisites
+          <ul style="font-size: 70%;">
+            <li>Built custom Android wheels (Soon to go away)</li>
+            <li>buildozer and python-for-android (kivy)</li>
+            <li>Main entry point is `main.py`</li>
+        </li>
+      </ul>
+      <li>Run the command
+        <pre style="font-size: 50%; width: 100%; text-align: left;">
+          <code data-trim data-noescape>
+            pyside6-android-deploy --wheels-pydie=`path-to-android-wheel` --wheel-shiboken=`path-to-android-wheel`
+          </code>
+        </pre>
+      </li>
       </ul>
       <aside class="notes">
         - Among other dependencies Flutter SDK is a major prerequisite
 
       </aside>
     </section>
+
+  <section>
+    <h3>Pros and Cons - PySide6</h3>
+    <h5>Pros</h5>
+    <ul>
+      <li>More features and modules than Kivy and Flet</li>
+      <li>Lot of resources</li>
+      <li>Big and active community</li>
+      <li>Easy switch to C++ - high performance</li>
+      <li>Lot of tools eg: Qt Designer, Qt Design Studio etc</li>
+    </ul>
+    <h5>Cons</h5>
+    <ul>
+      <li>Steep learning curve</li>
+      <li>No iOS and WebAssembly support</li>
+    </ul>
+    <aside class="notes">
+      1. More suitable for big projects.
+    </aside>
+  </section>
   </section>
 
   <section data-auto-animate>
@@ -580,7 +651,7 @@
   </section>
 
   <section data-auto-animate>
-    <h3>Package Support</h3>
+    <h3>Python Packages Support</h3>
     <p style="font-size: 80%;">
       Pure Python Packages - Platform Independent
     </p>
@@ -593,29 +664,75 @@
   </section>
 
   <section data-auto-animate>
-    <h3>Package Support</h3>
+    <h3>Python Packages Support</h3>
     <p style="font-size: 80%;">
       What about Native Python Packages?
     </p>
+    <div class="center">
+      <img src="img/buildozer_venn_diagram.png" />
+    </div>
+    <aside class="notes">
+      Give an idea about the number of recipes and how to add a new recipe. Recipes are necessary to take care of compilation of any compiled components.
+    </aside>
   </section>
-
 
   <section>
-    <div id="left">
-      <!-- Fix-me: Change to C++ blue -->
-      <h3>How <i style="color:#00589D">C++</i> and <i class="yellow">Python</i> can strive together</h3>
-      <hr style="width: 70px; border: 1px solid #ff00ff; background-color: #ff00ff; margin-left: 0px;"/>
-    <p style="font-size: 80%;">
-      <i class="qt-green">Shyamnath</i> Premnadh<br/>
-      <img class="clean-img" src="img/github_white.png">
-      <img class="clean-img" src="img/linkedin.png">
-    </p>
-    </div>
-    <div style="width:19% !important" id="right30">
-      <img style="width: 80%;margin-right: 50px;" src="img/python.svg" />
-      <img style="width: 80%;margin-right: 50px;" src="img/ISO_C++_Logo.svg.png" />
-    </div>
+    <h3>Other Concerns</h3>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col" style="font-size: 35px;">Flet</th>
+          <th scope="col" style="font-size: 35px;">Kivy</th>
+          <th scope="col" style="font-size: 35px;">PySide6</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" style="font-size: 35px;">Python Version</th>
+          <td style="font-size: 30px;">3.11</td>
+          <td style="font-size: 30px;">3.11</td>
+          <td style="font-size: 30px;">3.11</td>
+        </tr>
+        <tr>
+          <th scope="row" style="font-size: 35px;">Android NDK Version</th>
+          <td style="font-size: 30px;">r23b</td>
+          <td style="font-size: 30px;">r25b</td>
+          <td style="font-size: 30px;">r26b</td>
+        </tr>
+        <tr>
+          <th scope="row" style="font-size: 35px;">Licenses</th>
+          <td style="font-size: 30px;">Apache 2.0</td>
+          <td style="font-size: 30px;">MIT</td>
+          <td style="font-size: 30px;">LGPLv3/GPLv3 and Commercial</td>
+        </tr>
+      </tbody>
+    </table>
+    <aside class="notes">
+      1. Latest changelog reveals that flet upgraded to 3.12. Android NDK version for Flet is dependent on Flutter SDK used.
+      2. PySide6 uses Android NDK r26b because of the new 6.7 version.
+    </aside>
   </section>
+
+
+      <!--***************************************************************************-->
+      <section>
+        <div id="left">
+          <!-- Fix-me: Change to C++ blue -->
+          <h3>Deploying your <i class="yellow">Python</i> application to <i class="android-green">Android</i></h3>
+          <hr style="width: 70px; border: 1px solid #ff00ff; background-color: #ff00ff; margin-left: 0px;"/>
+        <p style="font-size: 80%;">
+          <i class="qt-green">Shyamnath</i> Premnadh<br/>
+          <img class="clean-img" src="img/github_white.png">
+          <img class="clean-img" src="img/linkedin.png">
+        </p>
+        </div>
+        <div style="width:19% !important" id="right30">
+          <img style="width: 80%;margin-right: 50px;" src="img/python.svg" />
+          <img style="width: 80%;margin-right: 50px;" src="img/Android_Robot.png" />
+        </div>
+      </section>
+      <!--***************************************************************************-->
     </div>
   </div>
 
