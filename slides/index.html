@@ -69,8 +69,8 @@
         </div>
         <div id="right30">
           <p style="width: 60%;">
-            <img src="img/pyside.png" />
-            <img src="img/qt_green.png" />
+            <img src="img/qtforpython.png" />
+            <img src="img/qt_logo.webp" />
           </p>
         </div>
         <aside class="notes">
@@ -87,7 +87,7 @@
       <section>
         <h3>Is <i class="yellow">Python</i> a good alternative for Java/Kotlin for <i class="android-green">Android</i> development? 🤔</h3>
         <h4 class="fragment" style="text-align: center;">
-          Currently, <i class="yellow">NO</i>
+          Currently, <i class="red">NO</i>
         </h4>
         <img class="fragment" style="width: 30%;" src="img/but_why.gif" />
         <aside class="notes">
@@ -105,6 +105,7 @@
             <li>The app should bundle the Python binaries</li>
           </ol>
         </div>
+        <img class="fragment" style="width: 30%;" src="img/but.gif" />
         <aside class="notes">
           Among the more obvious reasons like native languages like Java and Kotlin are faster, there are other reasons like:
           1.One has to cross-compile CPython(since 3.6) to Android to obtain the necessary binaries, and Android has 4 targets. This is inspite of projects like Kivy, BeeWare existing for years
@@ -114,23 +115,11 @@
       </section>
 
       <section data-auto-animate>
-        <h3><i class="yellow">Python</i> 🚫 <i class="android-green">Android</i></h3>
-        <div id="left_center">
-          <ol style="font-size: 70%;">
-            <li>No official support for Android in CPython</li>
-            <li>No native support for Python with Android SDK</li>
-            <li>The app should bundle the Python binaries</li>
-          </ol>
-          <h3> But .... </h3>
-        </div>
-      </section>
-
-      <section data-auto-animate>
         <h3><i class="yellow">Python</i> 🫶 <i class="android-green">Android</i></h3>
         <div id="left_center">
           <ol style="font-size: 70%;">
-            <li><i class="qt-green">No official support for Android in CPython</i> - <br> <i class="yellow">PEP 738: Adding Android as a supported platform - Malcolmn Smith</i></li>
-            <li><i class="qt-green">No native support for Python with Android SDK</i> - <i class="yellow">Toga, PySide6, PyQt6</i></li>
+            <li>No official support for Android in CPython - <br> <i class="yellow">PEP 738: Adding Android as a supported platform - Malcolmn Smith</i></li>
+            <li>No native support for Python with Android SDK - <i class="yellow">Toga, PySide6, PyQt6</i></li>
             <li><i class="red">The app should bundle the Python binaries</i></li>
           </ol>
         </div>
@@ -151,23 +140,24 @@
           1. You can ofcourse have a webview application with react native frontend and python backend but having a standalone GUI framework helps in unifited development with just using Python.
           It also enables more fine grained control over UI components and interactions.
           2. All of these frameworks are cross-platform. If ones task is to develop only an Android appliction, then don't use Python.
+          3. The frameworks are all cross-platform. Using Python only makes sense for cross-platform. Otherwise, use Java or Kotlin.
         </aside>
       </section>
 
       <section data-auto-animate>
-        <h3>Comparsion with an example</h3>
+        <h3><i class="orange">GUI</i> frameworks with <i class="android-green">Android</i> support</h3>
         <div id="left_center">
           <ol style="font-size: 90%;">
             <li>
-              <i class="qt-green">Kivy</i>
+              Kivy
               <img style="width:35px; vertical-align:middle;" src="img/kivy_logo.png" />
             </li>
             <li>
-              <i class="qt-green">Flet</i>
+              Flet
               <img style="width:35px; vertical-align:middle;" src="img/flet.png" />
             </li>
             <li>
-              <i class="qt-green">PySide6</i>
+              PySide6
               <img style="width:35px; vertical-align:middle;" src="img/qtforpython.png" />
             </li>
             <li>PyQt6</li>
@@ -183,15 +173,15 @@
       </section>
 
       <section>
-        <h3>Contact Manager Application</h3>
-        <div id="left_center">
-          <ul style="font-size: 70%;">
-            <li>Concise understanding of User Interaction</li>
-            <li>Simple Data Model</li>
-            <li>Event Handling</li>
-            <li>Navigation and Layout</li>
-          </ul>
-        </div>
+        <h3>Contact Manager Application 📱</h3>
+        <img src="img/contactmanager.png" />
+        <ul style="font-size: 70%;">
+          <li>Concise understanding of User Interaction</li>
+          <li>Uses essential GUI components</li>
+          <li>Simple Data Model</li>
+          <li>Event Handling</li>
+          <li>Navigation and Layout</li>
+        </ul>
         <aside class="notes">
           Basic concepts of an app are tested.
           - A contact manager application involves various user interactions such as listing contacts, adding new contacts, and removing existing ones.
@@ -207,15 +197,22 @@
 
       <section>
         <section>
-          <h3>Flet</h3>
+          <h3>
+            Flet
+            <img style="width: 50px; vertical-align: middle;" src="img/flet.png" />
+          </h3>
           <div id="left_center">
             <ul style="font-size: 70%;">
-              <li>Server-Driven UI framework based on Flutter</li>
+              <li>Since 2023</li>
+              <li>Server-Driven UI framework based on <i class="blue">Flutter</i></li>
               <li>Minimal API - Fully in Python</li>
               <li>Deploying as a web app on the browser or a progressive web app (PWA)</li>
-              <li>Super active and responsive community - Discord, Github Discussions, Mailing list etc</li>
-              <li>Apache-2.0 license</li>
+              <li>Active and responsive community</li>
+              <!-- <li>Apache-2.0 license</li> -->
             </ul>
+          </div>
+          <div style="bottom:20px !important" id="right30">
+            <img style="width: 70%;" src="img/flet_github.png" />
           </div>
           <aside class="notes">
             - new kid in the block, as such no baggage.
@@ -238,42 +235,44 @@
         </section>
 
         <section>
-          <h3>API</h3>
+          <h3>Ease of Development 💻</h3>
           <div id="left">
-          <ul style="font-size: 70%;">
-            <li>Easy to use
-              <pre style="font-size: 50%; width: 100%; text-align: left;">
-                <code data-line-numbers="23|18|15-16|1-3|4-7|8-9|10|11-12" class="python" data-trim data-noescape>
-                    class AddContact(UserControl):
-                    ...
-                    def build(self):
-                        self.name = TextField(label="Name", icon=icons.PERSON)
-                        self.address = TextField(label="Address", icon=icons.LOCATION_CITY)
-                        self.city = TextField(label="City", icon=icons.LOCATION_CITY)
-                        self.mobile = TextField(label="Mobile", icon=icons.PHONE)
-                        submit_button = ElevatedButton(text="Submit", on_click=self.add_contact)
-                        cancel_button = ElevatedButton(text="Cancel", on_click=self.close_dlg)
-                        self.submit_cancel_button = Row([submit_button, cancel_button])
-                        return Column([self.name, self.address, self.city, self.mobile,
-                                      self.submit_cancel_button])
+          <pre style="font-size: 35%; width: 100%; text-align: left;">
+            <code data-line-numbers="23|18|15-16|1-3|4-7|8-9|10|11-12" class="python" data-trim data-noescape>
+                class AddContact(UserControl):
+                ...
+                def build(self):
+                    self.name = TextField(label="Name", icon=icons.PERSON)
+                    self.address = TextField(label="Address", icon=icons.LOCATION_CITY)
+                    self.city = TextField(label="City", icon=icons.LOCATION_CITY)
+                    self.mobile = TextField(label="Mobile", icon=icons.PHONE)
+                    submit_button = ElevatedButton(text="Submit", on_click=self.add_contact)
+                    cancel_button = ElevatedButton(text="Cancel", on_click=self.close_dlg)
+                    self.submit_cancel_button = Row([submit_button, cancel_button])
+                    return Column([self.name, self.address, self.city, self.mobile,
+                                  self.submit_cancel_button])
 
-                    ...
-                    add_dialog = ft.AlertDialog(modal=True, title=ft.Text("Add new contact"),
-                                                content=AddContact(contacts_dict))
+                ...
+                #2
+                add_dialog = ft.AlertDialog(modal=True, title=ft.Text("Add new contact"),
+                                            content=AddContact(contacts_dict))
 
-                    def add_pressed(e):
-                      page.dialog = add_dialog
-                      add_dialog.open = True
-                      page.update()
+                def add_pressed(e):
+                  page.dialog = add_dialog
+                  add_dialog.open = True
+                  page.update()
 
-                    page.floating_action_button = FloatingActionButton(icon=ft.icons.ADD, on_click=add_pressed)
-              </code>
-              </pre>
-            </li>
-          </ul>
+                # 1
+                page.floating_action_button = FloatingActionButton(icon=ft.icons.ADD, on_click=add_pressed)
+          </code>
+          </pre>
+          </div>
+          <div id="right">
+            <img style="width: 50%;" src="img/flet_add_markings.png" />
           </div>
           <aside class="notes">
             1. Super easy to use - no confusing names, you get what you write
+            2. The entire code was 250 lines
           </aside>
         </section>
 
@@ -293,7 +292,7 @@
           </div>
           <div id="rightl">
             <p class="noteBoxes type4" style="font-size: 40%;">
-            <img src="img/lightbulb.svg" class="note-box-icon"/>
+            <img src="img/lightbulb.svg" class="note-box-icon"/> <br>
             apk (Android Application Package)- Packaging format <br>
             aab (Android App Bundle)- Publishing format
             </p>
@@ -305,6 +304,7 @@
 
         <section>
           <h3>Pros and Cons - Flet</h3>
+          <div id="left70" style="font-size: 70%;">
           <h5>Pros</h5>
           <ul>
             <li>More modern UI</li>
@@ -312,14 +312,18 @@
             <li>Minimal API, but hightly customizable</li>
             <li>Cross-platform + WebAssembly</li>
             <li>Super active and responsive community</li>
-            <li>Apache-2.0</li>
+            <!-- <li>Apache-2.0</li> -->
           </ul>
           <h5>Cons</h5>
           <ul>
             <li>Still very new</li>
             <li>Limited resources online</li>
+            <li>No visual designer</li>
+            <li>Not hardware access</li>
             <li>Not as mature as PySide6 and Kivy</li>
+            <li>No localization</li>
           </ul>
+          </div>
           <aside class="notes">
             1. Flet allows Publishing your app as static or dynamic website
             Cons:
@@ -327,30 +331,33 @@
             2. Not all flutter widgets are supported by Flet. Integrating existing flutter widgets is tricky.
             3. PySide6 has 3D support that Flet lacks.
             4. 223 questions on stackoverflow
+            5. Hot Reload does not exist for Kivy nor PySide6, but is not valid for Android?
           </aside>
         </section>
       </section>
 
   <section>
     <section>
-      <h3>Kivy</h3>
+      <h3>Kivy
+        <img style="width: 50px; vertical-align: middle;" src="img/kivy_logo.png" />
+      </h3>
       <div id="left_center">
         <ul style="font-size: 70%;">
           <li>Since 2012</li>
           <!-- add github stars -->
-          <li>Easy to get started with</li>
           <li>Two ways to create GUI
             <ul style="font-size: 85%;">
               <li>Python code</li>
               <li>Kv language</li>
             </ul>
           </li>
-          <li>More suited for games than tradional applications</li>
+          <li>More suited for games than traditional applications</li>
           <li>KivyMD for Material Design</li>
           <!-- <li>MIT license</li>
           <li>Community - Discord, Stackoverflow, Reddit, Github Issue Tracker</li> -->
         </ul>
       </div>
+      <img style="width: 20%;" src="img/kivy_github.png" />
       <aside class="notes">
         - Kivy provides robust support for 2D graphics and animations, which are essential for game development. Its graphics engine is optimized for rendering dynamic and visually appealing game scenes with smooth animations, making it well-suited for creating interactive game interfaces.
         - One of the aims of the Kivy language is to separate the concerns of presentation and logic. The presentation (layout) side is addressed by your .kv file and the logic by your .py file.
@@ -366,26 +373,68 @@
         <img src="img/kivy_expand.png" />
         <img src="img/kivy_add.png" />
       </div>
+      <!-- <div style="position: absolute; top: 0; right: 0; width: 10%;">
+        <img src="img/kivy_list.png" />
+       <img src="img/kivy_expand.png" />
+        <img src="img/kivy_add.png" />
+      </div> -->
     </section>
 
     <section>
-      <h3>API</h3>
+      <h3>Ease of Development 💻</h3>
       <div id="left">
-      Using Kivy and KivyMD
-      <pre style="font-size: 45%; width: 100%; text-align: left;">
+      <pre style="font-size: 40%; width: 90%; text-align: left;">
+      .kv file
       <code  data-line-numbers="" data-trim data-noescape>
-        <.MainWindow>:
-          MDBoxLayout:
-              orientation: 'vertical'
-              ....
-              # Creating the Float button
-              FloatButton:
-                  text: '+'
-                  markup: True
-                  background_color: 1, 0, 1, 0
+        <.AddContactContent>:
+          orientation: 'vertical'
+          ...
+          MDTextField:
+              hint_text: "Name"
+          MDTextField:
+              hint_text: "Address"
+          MDTextField:
+              hint_text: "City"
+          MDTextField:
+              hint_text: "Mobile"
+
+
+        MDFloatingActionButton:
+          icon: "plus" # comes bundled with icons
+          background_color: 1, 0, 1, 0
+          pos_hint: {'center_x': .95, 'center_y': .5}
+          on_release: app.add_contact_dialog()
+      </code> <br>
+      .py file
+      <code class="python" data-line-numbers="" data-trim data-noescape>
+        class ContactManagerApp(MDApp):
+          ...
+          def add_contact_dialog(self):
+              self.dialog = MDDialog(title="Add Contact",
+                                type="custom",
+                                content_cls=AddContactContent(),
+                                buttons=[
+                                      MDFlatButton(
+                                          text="CANCEL",
+                                          theme_text_color="Custom",
+                                          text_color=self.theme_cls.primary_color,
+                                          on_release=lambda x: self.dialog.dismiss()
+                                      ),
+                                      MDFlatButton(
+                                          text="OK",
+                                          theme_text_color="Custom",
+                                          text_color=self.theme_cls.primary_color,
+                                          on_release=lambda x: self.add_contact()
+                                      ),
+                                  ],
+                              )
+              self.dialog.open()
       </code>
       </pre>
-      </div>
+    </div>
+    <div id="right">
+      <img style="width: 50%;" src="img/kivy_add.png" />
+    </div>
       <aside class="notes">
         1. You can create custom text field using TextFieldStyle
         2. You can ofcourse do this directly with widgets in PySide6. The Textfield becomes a QTextField class and you can set the properties directly.
@@ -395,20 +444,11 @@
     </section>
 
     <section>
-      <h3>Role of Python?</h3>
-      Loading QML files from Python
-      <pre style="font-size: 50%; width: 100%; text-align: left;">
-        <code data-line-numbers="" class="python" data-trim data-noescape>
-      </code>
-      </pre>
-    </section>
-
-    <section>
       <h3>How to deploy?</h3>
+      <div id="left30">
       <ul style="font-size: 70%;">
         <li>Prerequisites
           <ul style="font-size: 70%;">
-            <li>Built custom Android wheels (Soon to go away)</li>
             <li>buildozer and python-for-android (kivy)</li>
             <li>Main entry point is `main.py`</li>
         </li>
@@ -416,43 +456,71 @@
       <li>Run the command
         <pre style="font-size: 50%; width: 100%; text-align: left;">
           <code data-trim data-noescape>
-            pyside6-android-deploy --wheels-pydie=`path-to-android-wheel` --wheel-shiboken=`path-to-android-wheel`
+            buildozer init
+            buildozer android debug # creates apk
           </code>
         </pre>
       </li>
       What is the app size?
       </ul>
-      <aside class="notes">
-        - Among other dependencies Flutter SDK is a major prerequisite
-      </aside>
+      </div>
     </section>
 
     <section>
       <h3>Pros and Cons - Kivy</h3>
+      <div id="left70" style="font-size: 70%;">
+      <h5>Pros</h5>
+      <ul>
+        <li>KivyMDBuilder - Interactive tool</li>
+        <li>kv language is easy to learn</li>
+        <li>Both PySide6 and Flet uses buildozer</li>
+        <li>More modules than Flet</li>
+        <li>Active community</li>
+      </ul>
+      <h5>Cons</h5>
+      <ul>
+        <li>Not as modern as Flet even with KivyMD</li>
+        <li>Not as mature as Qt</li>
+        <li>Not ideal for Desktop platforms</li>
+        <li>Limited resources as compared to PySide6</li>
+        <li>Incomplete API reference</li>
+        <li>Confusing Widget names. eg. Accordion</li>
+      </ul>
+      </div>
+      <aside class="notes">
+        All of these tools lead to large apk sizes and slow startup time.
+        Lot of broken examples for kivyMD and just 3 tutorials for Kivy.
+        There are more resources than flet, but still lacking as compared to Qt
+        on_touch_down(touch). Type of touch is not documented in the API reference
+        What is an Accordion?
+      </aside>
     </section>
   </section>
 
   <section>
     <section>
-      <h3>PySide6</h3>
+      <h3>
+        PySide6
+        <img style="width: 50px; vertical-align: middle;" src="img/qtforpython.png" />
+      </h3>
         <div id="left_center">
         <ul style="font-size: 70%;">
           <li>Official bindings for the Qt framework (since 1995 😮)</li>
           <li>
             Two ways to create GUIs
-            <ul style="font-size: 65%;">
+            <ul style="font-size: 80%;">
             <li>Qt Widgets - Python and C++</li>
             <li>Qt Quick - QML and Python/C++</li>
             </ul>
           </li>
-          <li>Interactive tool to create designs
-            <ul style="font-size: 65%;">
+          <li>Visual Designers
+            <ul style="font-size: 80%;">
               <li>Qt Widgets - Qt Designer</li>
               <li>Qt Quick - Qt Design Studio</li>
               </ul>
           </li>
-          <li>Native feel and look</li>
-          <li>Community Editon(LGPLv3/GPLv3) and Commercial Edition</li>
+          <!-- <li>Native feel and look</li>
+          <li>Community Editon(LGPLv3/GPLv3) and Commercial Edition</li> -->
         </ul>
       </div>
       <aside class="notes">
@@ -476,11 +544,9 @@
     </section>
 
     <section>
-      <h3>API</h3>
+      <h3>Ease of Development</h3>
       <div id="left70">
-      <ul style="font-size: 70%;">
-        <li>More features and years of community support
-          <pre style="font-size: 50%; width: 100%; text-align: left;">
+          <pre style="font-size: 40%; width: 120%; text-align: left;">
           <code  data-line-numbers="" data-trim data-noescape>
             ColumnLayout {
               id: grid
@@ -497,9 +563,7 @@
 
               TextField {
                   id: address
-                  Layout.fillWidth: true
-                  Layout.minimumWidth: grid.minimumInputSize
-                  Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                  ...
                   placeholderText: qsTr("Address")
               }
               ...
@@ -531,8 +595,6 @@
           }
           </code>
           </pre>
-        </li>
-      </ul>
       </div>
       <aside class="notes">
         1. You can create custom text field using TextFieldStyle
@@ -601,6 +663,7 @@
       <ul style="font-size: 70%;">
         <li>Prerequisites
           <ul style="font-size: 70%;">
+            <li>Unix host system</li>
             <li>Built custom Android wheels (Soon to go away)</li>
             <li>buildozer and python-for-android (kivy)</li>
             <li>Main entry point is `main.py`</li>
@@ -622,6 +685,7 @@
 
   <section>
     <h3>Pros and Cons - PySide6</h3>
+    <div id="left70" style="font-size: 70%;">
     <h5>Pros</h5>
     <ul>
       <li>More features and modules than Kivy and Flet</li>
@@ -634,9 +698,12 @@
     <ul>
       <li>Steep learning curve</li>
       <li>No iOS and WebAssembly support</li>
+      <li>Needs a Unix host system</li>
     </ul>
+    </div>
     <aside class="notes">
       1. More suitable for big projects.
+      2. Ideal when your application uses system services and hardware.
     </aside>
   </section>
   </section>
@@ -706,11 +773,25 @@
           <td style="font-size: 30px;">MIT</td>
           <td style="font-size: 30px;">LGPLv3/GPLv3 and Commercial</td>
         </tr>
+        <tr>
+          <th scope="row" style="font-size: 35px;">App Size</th>
+          <td style="font-size: 30px;"></td>
+          <td style="font-size: 30px;"></td>
+          <td style="font-size: 30px;"></td>
+        </tr>
       </tbody>
     </table>
     <aside class="notes">
       1. Latest changelog reveals that flet upgraded to 3.12. Android NDK version for Flet is dependent on Flutter SDK used.
       2. PySide6 uses Android NDK r26b because of the new 6.7 version.
+    </aside>
+  </section>
+
+  <section>
+    <h3>Conclusion 🏁</h3>
+    <aside class="notes">
+      The final choice comes down to your requirements. Flutter for mobile apps, Kivy for games, PySide6 for cross-platform apps.
+      3. The frameworks are all cross-platform. Using Python only makes sense for cross-platform. Otherwise, use Java or Kotlin.
     </aside>
   </section>
 

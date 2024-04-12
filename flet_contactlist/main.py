@@ -9,21 +9,8 @@
 # what is the `e` in addclicked(e)
 
 import flet as ft
-from flet import (
-    Column,
-    FloatingActionButton,
-    IconButton,
-    Page,
-    Row,
-    TextField,
-    UserControl,
-    colors,
-    icons,
-    Text,
-    ListTile,
-    ExpansionTile,
-    ElevatedButton
-)
+from flet import (Column, FloatingActionButton, IconButton, Page, Row, TextField, UserControl, colors, icons, Text, ListTile,
+                  ExpansionTile, ElevatedButton)
 
 
 class Contact:
