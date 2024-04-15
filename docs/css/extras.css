@@ -24,7 +24,7 @@ a.url:before { font-family: monospace; content: attr(href); }
   justify-content: space-between;
 }
 .image-container img {
-  width: 30%;
+  width: 26%;
 }
 .noteBoxes
 {

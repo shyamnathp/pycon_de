@@ -81,7 +81,7 @@
 
       <section>
         <h2>Why is <i class="android-green">Android</i> an important platform ?🦾</h2>
-        <img style="width: 70%;" src="img/os_barplot.png" />
+        <img style="width: 60%;" src="img/os_barplot.png" />
       </section>
 
       <section>
@@ -115,7 +115,7 @@
       </section>
 
       <section data-auto-animate>
-        <h3><i class="yellow">Python</i> 🫶 <i class="android-green">Android</i></h3>
+        <h3><i class="yellow">Python</i> ❤️ <i class="android-green">Android</i></h3>
         <div id="left_center">
           <ol style="font-size: 70%;">
             <li>No official support for Android in CPython - <br> <i class="yellow">PEP 738: Adding Android as a supported platform - Malcolmn Smith</i></li>
@@ -128,7 +128,7 @@
       <section data-auto-animate>
         <h3><i class="orange">GUI</i> frameworks with <i class="android-green">Android</i> support</h3>
         <div id="left_center">
-          <ol style="font-size: 90%;">
+          <ol style="font-size: 70%;">
             <li>Kivy</li>
             <li>Flet</li>
             <li>PySide6</li>
@@ -147,18 +147,18 @@
       <section data-auto-animate>
         <h3><i class="orange">GUI</i> frameworks with <i class="android-green">Android</i> support</h3>
         <div id="left_center">
-          <ol style="font-size: 90%;">
-            <li>
+          <ol style="font-size: 70%;">
+            <li class="qt-green">
               Kivy
-              <img style="width:35px; vertical-align:middle;" src="img/kivy_logo.png" />
+              <img style="width:35px; vertical-align:middle; margin: 0;" src="img/kivy_logo.png" />
             </li>
-            <li>
+            <li class="qt-green">
               Flet
-              <img style="width:35px; vertical-align:middle;" src="img/flet.png" />
+              <img style="width:35px; vertical-align:middle; margin: 0;" src="img/flet.png" />
             </li>
-            <li>
+            <li class="qt-green">
               PySide6
-              <img style="width:35px; vertical-align:middle;" src="img/qtforpython.png" />
+              <img style="width:35px; vertical-align:middle; margin: 0;" src="img/qtforpython.png" />
             </li>
             <li>PyQt6</li>
             <li>Toga</li>
@@ -173,9 +173,9 @@
       </section>
 
       <section>
-        <h3>Contact Manager Application 📱</h3>
-        <img src="img/contactmanager.png" />
-        <ul style="font-size: 70%;">
+        <h3>Contact Manager Application📱</h3>
+        <img src="img/contactmanager.png" style="width: 70%;"/>
+        <ul style="font-size: 60%;">
           <li>Concise understanding of User Interaction</li>
           <li>Uses essential GUI components</li>
           <li>Simple Data Model</li>
@@ -199,9 +199,9 @@
         <section>
           <h3>
             Flet
-            <img style="width: 50px; vertical-align: middle;" src="img/flet.png" />
+            <img style="width: 50px; margin: 0%;" src="img/flet.png" />
           </h3>
-          <div id="left_center">
+          <div id="left">
             <ul style="font-size: 70%;">
               <li>Since 2023</li>
               <li>Server-Driven UI framework based on <i class="blue">Flutter</i></li>
@@ -211,8 +211,8 @@
               <!-- <li>Apache-2.0 license</li> -->
             </ul>
           </div>
-          <div style="bottom:20px !important" id="right30">
-            <img style="width: 70%;" src="img/flet_github.png" />
+          <div id="right" style="position: relative; left: 0%;">
+            <img style="width: 50%;" src="img/flet_github.png" />
           </div>
           <aside class="notes">
             - new kid in the block, as such no baggage.
@@ -237,7 +237,7 @@
         <section>
           <h3>Ease of Development 💻</h3>
           <div id="left">
-          <pre style="font-size: 35%; width: 140% !important; text-align: left;">
+          <pre style="font-size: 35%;width: 44.5vw !important;text-align: left;height: 24vw;overflow: hidden;">
             <code data-line-numbers="23|18|15-16|1-3|4-7|8-9|10|11-12" class="python" data-trim data-noescape>
                 class AddContact(UserControl):
                 ...
@@ -268,7 +268,7 @@
           </pre>
           </div>
           <div id="right">
-            <img style="width: 40%;" src="img/flet_add_markings.png" />
+            <img style="width: 56.4%;margin: 13px -81px 0 0;" src="img/flet_add_markings.png" />
           </div>
           <aside class="notes">
             1. Super easy to use - no confusing names, you get what you write
@@ -282,7 +282,7 @@
           <ul style="font-size: 70%;">
             <li>Prerequisites - Flutter SDK</li>
             <li>Run the command
-              <pre style="font-size: 50%; width: 100%; text-align: left;">
+              <pre style="font-size: 50%; width: 100%; text-align: left;right:0">
                 <code data-trim data-noescape>
                   flet build apk/aab
                 </code>
@@ -304,26 +304,30 @@
 
         <section>
           <h3>Pros and Cons - Flet</h3>
-          <div id="left70" style="font-size: 70%;">
-          <h5>Pros</h5>
-          <ul>
-            <li>More modern UI</li>
-            <li>Easy to get started with</li>
-            <li>Minimal API, but hightly customizable</li>
-            <li>Cross-platform + WebAssembly</li>
-            <li>Super active and responsive community</li>
-            <!-- <li>Apache-2.0</li> -->
-          </ul>
-          <h5>Cons</h5>
-          <ul>
-            <li>Still very new</li>
-            <li>Limited resources online</li>
-            <li>No visual designer</li>
-            <li>Not hardware access</li>
-            <li>Not as mature as PySide6 and Kivy</li>
-            <li>No localization</li>
-          </ul>
-          </div>
+          <div id="left70" style="font-size: 70%;display: flex;width: 100%;">
+            <div>
+              <h5>Pros</h5>
+            <ul>
+              <li>More modern UI</li>
+              <li>Easy to get started with</li>
+              <li>Minimal API, but hightly customizable</li>
+              <li>Cross-platform + WebAssembly</li>
+              <li>Super active and responsive community</li>
+              <!-- <li>Apache-2.0</li> -->
+            </ul>
+            </div>
+            <div>
+              <h5>Cons</h5>
+            <ul>
+              <li>Still very new</li>
+              <li>Limited resources online</li>
+              <li>No visual designer</li>
+              <li>Not hardware access</li>
+              <li>Not as mature as PySide6 and Kivy</li>
+              <li>No localization</li>
+            </ul>
+            </div>
+            </div>
           <aside class="notes">
             1. Flet allows Publishing your app as static or dynamic website
             Cons:
@@ -341,7 +345,7 @@
       <h3>Kivy
         <img style="width: 50px; vertical-align: middle;" src="img/kivy_logo.png" />
       </h3>
-      <div id="left_center">
+      <div id="left_center" style="display: flex"> 
         <ul style="font-size: 70%;">
           <li>Since 2012</li>
           <!-- add github stars -->
@@ -356,8 +360,8 @@
           <!-- <li>MIT license</li>
           <li>Community - Discord, Stackoverflow, Reddit, Github Issue Tracker</li> -->
         </ul>
+        <img style="width: 32%;padding: 22px;" src="img/kivy_github.png" />
       </div>
-      <img style="width: 20%;" src="img/kivy_github.png" />
       <aside class="notes">
         - Kivy provides robust support for 2D graphics and animations, which are essential for game development. Its graphics engine is optimized for rendering dynamic and visually appealing game scenes with smooth animations, making it well-suited for creating interactive game interfaces.
         - One of the aims of the Kivy language is to separate the concerns of presentation and logic. The presentation (layout) side is addressed by your .kv file and the logic by your .py file.
@@ -831,10 +835,11 @@
   <div id="hidden" style="display:none;">
     <div id="header">
       <div id="header-left"><img src="img/qt.png" style="width: 100px;margin-left: 30px;" /></div>
-      <div id="footer-left"><img src="img/pycon_de.png" style="width: 40px;" /></div>
+      <!-- <div id="footer-left"></div> -->
       <div id="header-right"></div>
       <div id="footer-left">
-        <p style="font-size: 14pt;margin-left: 40px;">
+        <img src="img/pycon_de.png" style="width: 40px;" />
+        <p style="font-size: 14pt;margin: 28px 10px 24px 6px;">
           <i class="white">PyCon DE | April 23, 2024</i>
       </div>
   </div>

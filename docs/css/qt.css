@@ -12,6 +12,8 @@
   position: absolute;
   bottom: 0%;
   left: 0%;
+  display: flex;
+  margin-left: 30px;
 }
 
 /* Slide division */
