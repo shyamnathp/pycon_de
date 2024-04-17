@@ -126,9 +126,9 @@
       </section>
 
       <section data-auto-animate>
-        <h3><i class="orange">GUI</i> frameworks with <i class="android-green">Android</i> support</h3>
+        <h3><i class="yellow">GUI</i> frameworks with <i class="android-green">Android</i> support</h3>
         <div id="left_center">
-          <ol style="font-size: 70%;">
+          <ol style="font-size: 80%;">
             <li>Kivy</li>
             <li>Flet</li>
             <li>PySide6</li>
@@ -145,9 +145,9 @@
       </section>
 
       <section data-auto-animate>
-        <h3><i class="orange">GUI</i> frameworks with <i class="android-green">Android</i> support</h3>
+        <h3><i class="yellow">GUI</i> frameworks with <i class="android-green">Android</i> support</h3>
         <div id="left_center">
-          <ol style="font-size: 70%;">
+          <ol style="font-size: 80%;">
             <li class="qt-green">
               Kivy
               <img style="width:35px; vertical-align:middle; margin: 0;" src="img/kivy_logo.png" />
@@ -175,13 +175,13 @@
       <section>
         <h3>Contact Manager Application📱</h3>
         <img src="img/contactmanager.png" style="width: 70%;"/>
-        <ul style="font-size: 60%;">
+        <!-- <ul style="font-size: 60%;">
           <li>Concise understanding of User Interaction</li>
           <li>Uses essential GUI components</li>
           <li>Simple Data Model</li>
           <li>Event Handling</li>
           <li>Navigation and Layout</li>
-        </ul>
+        </ul> -->
         <aside class="notes">
           Basic concepts of an app are tested.
           - A contact manager application involves various user interactions such as listing contacts, adding new contacts, and removing existing ones.
@@ -207,7 +207,7 @@
               <li>Server-Driven UI framework based on <i class="blue">Flutter</i></li>
               <li>Minimal API - Fully in Python</li>
               <li>Deploying as a web app on the browser or a progressive web app (PWA)</li>
-              <li>Active and responsive community</li>
+              <!-- <li>Active and responsive community</li> -->
               <!-- <li>Apache-2.0 license</li> -->
             </ul>
           </div>
@@ -238,7 +238,7 @@
           <h3>Ease of Development 💻</h3>
           <div id="left">
           <pre style="font-size: 35%;width: 44.5vw !important;text-align: left;height: 24vw;overflow: hidden;">
-            <code data-line-numbers="23|18|15-16|1-3|4-7|8-9|10|11-12" class="python" data-trim data-noescape>
+            <code data-line-numbers="24-25|19-22|16-17|1|4-7|8-9|10|11-12" class="python" data-trim data-noescape>
                 class AddContact(UserControl):
                 ...
                 def build(self):
@@ -277,10 +277,10 @@
         </section>
 
         <section>
-          <h3>How to deploy?</h3>
+          <h3>How to deploy?🛠️</h3>
           <div id="left">
-          <ul style="font-size: 70%;">
-            <li>Prerequisites - Flutter SDK</li>
+          <ul style="font-size: 80%;">
+            <li><i class="yellow">Prerequisites</i> - Flutter SDK</li>
             <li>Run the command
               <pre style="font-size: 50%; width: 100%; text-align: left;right:0">
                 <code data-trim data-noescape>
@@ -303,21 +303,21 @@
         </section>
 
         <section>
-          <h3>Pros and Cons - Flet</h3>
+          <h3><i class="green">Pros</i> and <i class="red">Cons</i> - Flet</h3>
           <div id="left70" style="font-size: 70%;display: flex;width: 100%;">
             <div>
-              <h5>Pros</h5>
+              <h5><i class="green">Pros</i></h5>
             <ul>
               <li>More modern UI</li>
               <li>Easy to get started with</li>
               <li>Minimal API, but hightly customizable</li>
               <li>Cross-platform + WebAssembly</li>
-              <li>Super active and responsive community</li>
+              <li>Active and responsive community</li>
               <!-- <li>Apache-2.0</li> -->
             </ul>
             </div>
             <div>
-              <h5>Cons</h5>
+              <h5><i class="red">Cons</i></h5>
             <ul>
               <li>Still very new</li>
               <li>Limited resources online</li>
@@ -348,7 +348,6 @@
       <div id="left_center" style="display: flex"> 
         <ul style="font-size: 70%;">
           <li>Since 2012</li>
-          <!-- add github stars -->
           <li>Two ways to create GUI
             <ul style="font-size: 85%;">
               <li>Python code</li>
@@ -384,12 +383,12 @@
       </div> -->
     </section>
 
-    <section>
+    <section data-auto-animate="">
       <h3>Ease of Development 💻</h3>
       <div id="left">
-      <pre style="font-size: 40%; width: 140%; text-align: left;">
-      .kv file
-      <code  data-line-numbers="" data-trim data-noescape>
+      <pre style="font-size: 32%;width: 44.5vw !important;text-align: left;">
+      <b>.kv file</b>
+      <code  data-line-numbers="13-17" data-trim data-noescape>
         <.AddContactContent>:
           orientation: 'vertical'
           ...
@@ -408,8 +407,8 @@
           pos_hint: {'center_x': .95, 'center_y': .5}
           on_release: app.add_contact_dialog()
       </code> <br>
-      .py file
-      <code class="python" data-line-numbers="" data-trim data-noescape>
+      <b>.py file</b>
+      <code class="python" data-line-numbers="1-12" data-trim data-noescape>
         class ContactManagerApp(MDApp):
           ...
           def add_contact_dialog(self):
@@ -426,7 +425,59 @@
       </pre>
     </div>
     <div id="right">
-      <img style="width: 40%;" src="img/kivy_add.png" />
+      <img style="width: 50%;margin: 34px -19px 0px 0px;" src="img/kivy_add_no_keyboard.png" />
+    </div>
+      <aside class="notes">
+        1. You can create custom text field using TextFieldStyle
+        2. You can ofcourse do this directly with widgets in PySide6. The Textfield becomes a QTextField class and you can set the properties directly.
+           But, things like RoundButton that exists in QtQuick does not exists in Widgets. Manually creating it required creating a stylesheet which is a lot of code.
+        3. No API examples and usage examples. The documentation is not as good as PySide6.
+      </aside>
+    </section>
+
+    <section data-auto-animate="">
+      <h3>Ease of Development 💻</h3>
+      <div id="left">
+      <pre style="font-size: 32%;width: 44.5vw !important;text-align: left;">
+      <b>.kv file</b>
+      <code  data-line-numbers="1-11" data-trim data-noescape>
+        <.AddContactContent>:
+          orientation: 'vertical'
+          ...
+          MDTextField:
+              hint_text: "Name"
+          MDTextField:
+              hint_text: "Address"
+          MDTextField:
+              hint_text: "City"
+          MDTextField:
+              hint_text: "Mobile"
+
+        MDFloatingActionButton:
+          icon: "plus" # comes bundled with icons
+          background_color: 1, 0, 1, 0
+          pos_hint: {'center_x': .95, 'center_y': .5}
+          on_release: app.add_contact_dialog()
+      </code> <br>
+      <b>.py file</b>
+      <code class="python" data-line-numbers="1-12" data-trim data-noescape>
+        class ContactManagerApp(MDApp):
+          ...
+          def add_contact_dialog(self):
+              self.dialog = MDDialog(title="Add Contact", type="custom", content_cls=AddContactContent(),
+                                     buttons=[MDFlatButton(text="CANCEL", theme_text_color="Custom",
+                                                           text_color=self.theme_cls.primary_color,
+                                                           on_release=lambda x: self.dialog.dismiss()),
+                                              MDFlatButton(text="OK", theme_text_color="Custom",
+                                                           text_color=self.theme_cls.primary_color,
+                                                           on_release=lambda x: self.add_contact()),],
+                              )
+              self.dialog.open()
+      </code>
+      </pre>
+    </div>
+    <div id="right">
+      <img style="width: 50%;margin: 34px -19px 0px 0px;" src="img/kivy_add_no_keyboard.png" />
     </div>
       <aside class="notes">
         1. You can create custom text field using TextFieldStyle
@@ -437,49 +488,53 @@
     </section>
 
     <section>
-      <h3>How to deploy?</h3>
+      <h3>How to deploy?🛠️</h3>
       <div id="left30">
-      <ul style="font-size: 70%;">
-        <li>Prerequisites
+      <ul style="font-size: 80%;">
+        <li><i class="yellow">Prerequisites</i>
           <ul style="font-size: 70%;">
             <li>buildozer and python-for-android (kivy)</li>
             <li>Main entry point is `main.py`</li>
         </li>
       </ul>
       <li>Run the command
-        <pre style="font-size: 50%; width: 100%; text-align: left;">
+        <pre style="font-size: 50%; width: 100%; text-align: left;right:0">
           <code data-trim data-noescape>
             buildozer init
             buildozer android debug # creates apk
           </code>
         </pre>
       </li>
-      What is the app size?
+      <!-- What is the app size? -->
       </ul>
       </div>
     </section>
 
     <section>
-      <h3>Pros and Cons - Kivy</h3>
-      <div id="left70" style="font-size: 70%;">
-      <h5>Pros</h5>
-      <ul>
-        <li>KivyMDBuilder - Interactive tool</li>
-        <li>kv language is easy to learn</li>
-        <li>Both PySide6 and Flet uses buildozer</li>
-        <li>More modules than Flet</li>
-        <li>Active community</li>
-      </ul>
-      <h5>Cons</h5>
-      <ul>
-        <li>Not as modern as Flet even with KivyMD</li>
-        <li>Not as mature as Qt</li>
-        <li>Not ideal for Desktop platforms</li>
-        <li>Limited resources as compared to PySide6</li>
-        <li>Incomplete API reference</li>
-        <li>Confusing Widget names. eg. Accordion</li>
-      </ul>
-      </div>
+      <h3><i class="green">Pros</i> and <i class="red">Cons</i> - Kivy</h3>
+      <div id="left70" style="font-size: 70%;display: flex;width: 100%;">
+        <div>
+          <h5><i class="green">Pros</i></h5>
+        <ul>
+          <li>KivyMDBuilder - Interactive tool</li>
+          <li>kv language is easy to learn</li>
+          <li>Both PySide6 and Flet uses buildozer</li>
+          <li>More modules than Flet</li>
+          <li>Active community</li>
+        </ul>
+        </div>
+        <div>
+          <h5><i class="red">Cons</i></h5>
+        <ul>
+          <li>Not as modern as Flet even with KivyMD</li>
+          <li>Not as mature as Qt</li>
+          <li>Not ideal for Desktop platforms</li>
+          <li>Limited resources as compared to PySide6</li>
+          <li>Incomplete API reference</li>
+          <li>Confusing Widget names. eg. Accordion</li>
+        </ul>
+        </div>
+        </div>
       <aside class="notes">
         All of these tools lead to large apk sizes and slow startup time.
         Lot of broken examples for kivyMD and just 3 tutorials for Kivy.
@@ -494,7 +549,7 @@
     <section>
       <h3>
         PySide6
-        <img style="width: 50px; vertical-align: middle;" src="img/qtforpython.png" />
+        <img style="width: 50px; margin: 0%;" src="img/qtforpython.png" />
       </h3>
         <div id="left_center">
         <ul style="font-size: 70%;">
@@ -539,21 +594,17 @@
     <section>
       <h3>Ease of Development 💻</h3>
       <div id="left">
-          <pre style="font-size: 35%; width: 140%; height: 120%; text-align: left;">
-          <code  data-line-numbers="" data-trim data-noescape>
+          <pre style="font-size: 35%; width: 44.5vw !important;text-align: left;height: 28vw;overflow: hidden;">
+          <code  data-line-numbers="27-35|19-23|24|1-16" data-trim data-noescape>
             ColumnLayout {
               id: grid
               ...
-
               TextField {
                 id: fullName
                 focus: true
-                Layout.fillWidth: true
-                Layout.minimumWidth: grid.minimumInputSize
-                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                Layout.fillWidth: true; Layout.minimumWidth: grid.minimumInputSize;Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
                 placeholderText: qsTr("Full Name")
               }
-
               TextField {
                   id: address
                   ...
@@ -564,33 +615,27 @@
 
             Dialog {
               id: dialog
-
               function createContact() {
-                  form.fullName.clear();
-                  ...
                   dialog.title = qsTr("Add Contact");
                   dialog.open();
               }
-
               contentItem: ContactForm { id: form}
             }
 
             RoundButton {
               text: qsTr("+")
               highlighted: true
-              anchors.margins: 10
-              anchors.right: parent.right
-              anchors.bottom: parent.bottom
+              anchors.margins: 10; anchors.right: parent.right; anchors.bottom: parent.bottom
               onClicked: {
                   currentContact = -1
                   contactDialog.createContact()
               }
-          }
+            }
           </code>
           </pre>
       </div>
       <div id="right">
-        <img style="width: 40%;" src="img/pyside_add.png" />
+        <img style="width: 49%;margin: 16px -21px 0 0;" src="img/pyside_add.png" />
       <aside class="notes">
         1. You can create custom text field using TextFieldStyle
         2. You can ofcourse do this directly with widgets in PySide6. The Textfield becomes a QTextField class and you can set the properties directly.
@@ -599,10 +644,10 @@
     </section>
 
     <section>
-      <h3>Role of Python?</h3>
-      Loading QML files from Python
+      <h3>Role of Python? 🐍</h3>
+      <pre style="font-size: 60%; text-align: center;"><b>Loading QML files from Python - main.py</b></pre>
       <pre style="font-size: 35%; width: 100%; text-align: left;">
-        <code data-line-numbers="" class="python" data-trim data-noescape>
+        <code data-line-numbers="5" class="python" data-trim data-noescape>
           if __name__ == '__main__':
             app = QGuiApplication(sys.argv)
             engine = QQmlApplicationEngine()
@@ -615,12 +660,12 @@
             sys.exit(ex)
       </code>
       </pre>
-      <!-- Using Python object in QML -->
+      <pre style="font-size: 60%; text-align: center;"><b>Using Python classes in QML</b></pre>
       <div style="float: left;">
-      <pre style="text-align: left;">
-        contactmodel.py
+      <pre style="font-size: 50%;">
+        <u>contactmodel.py</u>
       </pre>
-      <pre style="font-size: 35%; width: 100%; text-align: left;">
+      <pre style="font-size: 35%; width: 25vw !important; text-align: left;">
         <code data-line-numbers="" class="python" data-trim data-noescape>
           QML_IMPORT_NAME = "Backend"
           QML_IMPORT_MAJOR_VERSION = 1
@@ -633,10 +678,10 @@
       </pre>
       </div>
       <div style="float: right;">
-      <pre style="text-align: left;">
-      contactview.qml
+      <pre style="font-size: 50%;">
+      <u>contactview.qml</u>
       </pre>
-      <pre style="font-size: 35%; width: 100%; text-align: left;">
+      <pre style="font-size: 35%; width: 130%; text-align: left;">
         <code data-line-numbers="" class="qml" data-trim data-noescape>
           import Backend
 
@@ -654,18 +699,18 @@
     </section>
 
     <section>
-      <h3>How to deploy?</h3>
-      <ul style="font-size: 70%;">
-        <li>Prerequisites
+      <h3>How to deploy?🛠️</h3>
+      <ul style="font-size: 80%;">
+        <li><i class="yellow">Prerequisites</i>
           <ul style="font-size: 70%;">
             <li>Unix host system</li>
-            <li>Built custom Android wheels (Soon to go away)</li>
+            <li>Built custom Android wheels (<i class="green">Soon to go away</i>)</li>
             <li>buildozer and python-for-android (kivy)</li>
             <li>Main entry point is `main.py`</li>
         </li>
       </ul>
       <li>Run the command
-        <pre style="font-size: 50%; width: 100%; text-align: left;">
+        <pre style="font-size: 45%; width: 100%; text-align: left;right:0">
           <code data-trim data-noescape>
             pyside6-android-deploy --wheels-pyside=`path-to-android-wheel` --wheel-shiboken=`path-to-android-wheel`
           </code>
@@ -679,23 +724,27 @@
     </section>
 
   <section>
-    <h3>Pros and Cons - PySide6</h3>
-    <div id="left70" style="font-size: 70%;">
-    <h5>Pros</h5>
-    <ul>
-      <li>More features and modules than Kivy and Flet</li>
-      <li>Lot of resources</li>
-      <li>Big and active community</li>
-      <li>Easy switch to C++ - high performance</li>
-      <li>Lot of tools eg: Qt Designer, Qt Design Studio etc</li>
-    </ul>
-    <h5>Cons</h5>
-    <ul>
-      <li>Steep learning curve</li>
-      <li>No iOS and WebAssembly support</li>
-      <li>Needs a Unix host system</li>
-    </ul>
-    </div>
+    <h3><i class="green">Pros</i> and <i class="red">Cons</i> - PySide6</h3>
+    <div id="left70" style="font-size: 70%;display: flex;width: 100%;">
+      <div>
+        <h5><i class="green">Pros</i></h5>
+      <ul>
+        <li>More features and modules than Kivy and Flet</li>
+        <li>Lot of resources</li>
+        <li>Big and active community</li>
+        <li>Easy switch to C++ - high performance</li>
+        <li>Lot of tools eg: Qt Designer, Qt Design Studio etc</li>
+      </ul>
+      </div>
+      <div>
+        <h5><i class="red">Cons</i></h5>
+      <ul>
+        <li>Steep learning curve</li>
+        <li>No iOS and WebAssembly support</li>
+        <li>Needs a Unix host system</li>
+      </ul>
+      </div>
+      </div>
     <aside class="notes">
       1. More suitable for big projects.
       2. Ideal when your application uses system services and hardware.
@@ -704,7 +753,7 @@
   </section>
 
   <section data-auto-animate>
-    <h3>Python Packages Support</h3>
+    <h3>Python Packages Support 📦</h3>
     <!-- <div id="left_center"> -->
     <p style="font-size: 80%;">
       Pure Python Packages - Platform Independent
@@ -713,7 +762,7 @@
   </section>
 
   <section data-auto-animate>
-    <h3>Python Packages Support</h3>
+    <h3>Python Packages Support 📦</h3>
     <p style="font-size: 80%;">
       Pure Python Packages - Platform Independent
     </p>
@@ -726,12 +775,12 @@
   </section>
 
   <section data-auto-animate>
-    <h3>Python Packages Support</h3>
+    <h3>Python Packages Support 📦</h3>
     <p style="font-size: 80%;">
       What about Native Python Packages?
     </p>
     <div class="center">
-      <img src="img/buildozer_venn_diagram.png" />
+      <img style="width: 75%;" src="img/buildozer_venn_diagram.png" />
     </div>
     <aside class="notes">
       Give an idea about the number of recipes and how to add a new recipe. Recipes are necessary to take care of compilation of any compiled components.
