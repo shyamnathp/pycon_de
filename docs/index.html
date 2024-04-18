@@ -118,8 +118,8 @@
         <h3><i class="yellow">Python</i> ❤️ <i class="android-green">Android</i></h3>
         <div id="left_center">
           <ol style="font-size: 70%;">
-            <li>No official support for Android in CPython - <br> <i class="yellow">PEP 738: Adding Android as a supported platform - Malcolmn Smith</i></li>
-            <li>No native support for Python with Android SDK - <i class="yellow">Toga, PySide6, PyQt6</i></li>
+            <li><i class="green">No official support for Android in CPython</i> - <br> <i class="yellow">PEP 738: Adding Android as a supported platform - Malcolmn Smith</i></li>
+            <li><i class="green">No native support for Python with Android SDK</i></li>
             <li><i class="red">The app should bundle the Python binaries</i></li>
           </ol>
         </div>
@@ -237,33 +237,20 @@
         <section>
           <h3>Ease of Development 💻</h3>
           <div id="left">
-          <pre style="font-size: 35%;width: 44.5vw !important;text-align: left;height: 24vw;overflow: hidden;">
-            <code data-line-numbers="24-25|19-22|16-17|1|4-7|8-9|10|11-12" class="python" data-trim data-noescape>
-                class AddContact(UserControl):
-                ...
-                def build(self):
-                    self.name = TextField(label="Name", icon=icons.PERSON)
-                    self.address = TextField(label="Address", icon=icons.LOCATION_CITY)
-                    self.city = TextField(label="City", icon=icons.LOCATION_CITY)
-                    self.mobile = TextField(label="Mobile", icon=icons.PHONE)
-                    submit_button = ElevatedButton(text="Submit", on_click=self.add_contact)
-                    cancel_button = ElevatedButton(text="Cancel", on_click=self.close_dlg)
-                    self.submit_cancel_button = Row([submit_button, cancel_button])
-                    return Column([self.name, self.address, self.city, self.mobile,
-                                  self.submit_cancel_button])
-
-                ...
+          <pre style="font-size: 35%;width: 40vw !important;text-align: left;height: 12vw;overflow: hidden;">
+            <code data-line-numbers="11-12|6-9|2" class="python" data-trim data-noescape>
                 #2
-                add_dialog = ft.AlertDialog(modal=True, title=ft.Text("Add new contact"),
+                add_dialog = flet.AlertDialog(modal=True, title=ft.Text("Add new contact"),
                                             content=AddContact(contacts_dict))
 
+                #1
                 def add_pressed(e):
                   page.dialog = add_dialog
                   add_dialog.open = True
                   page.update()
 
-                # 1
-                page.floating_action_button = FloatingActionButton(icon=ft.icons.ADD, on_click=add_pressed)
+                page.floating_action_button = flet.FloatingActionButton(icon=ft.icons.ADD, 
+                                                                        on_click=add_pressed)
           </code>
           </pre>
           </div>
@@ -276,7 +263,7 @@
           </aside>
         </section>
 
-        <section>
+        <!-- <section>
           <h3>How to deploy?🛠️</h3>
           <div id="left">
           <ul style="font-size: 80%;">
@@ -300,7 +287,7 @@
           <aside class="notes">
             - Among other dependencies Flutter SDK is a major prerequisite
           </aside>
-        </section>
+        </section> -->
 
         <section>
           <h3><i class="green">Pros</i> and <i class="red">Cons</i> - Flet</h3>
@@ -386,21 +373,9 @@
     <section data-auto-animate="">
       <h3>Ease of Development 💻</h3>
       <div id="left">
-      <pre style="font-size: 32%;width: 44.5vw !important;text-align: left;">
+      <pre style="font-size: 32%;width: 30vw !important;text-align: left;">
       <b>.kv file</b>
-      <code  data-line-numbers="13-17" data-trim data-noescape>
-        <.AddContactContent>:
-          orientation: 'vertical'
-          ...
-          MDTextField:
-              hint_text: "Name"
-          MDTextField:
-              hint_text: "Address"
-          MDTextField:
-              hint_text: "City"
-          MDTextField:
-              hint_text: "Mobile"
-
+      <code data-trim data-noescape>
         MDFloatingActionButton:
           icon: "plus" # comes bundled with icons
           background_color: 1, 0, 1, 0
@@ -408,18 +383,12 @@
           on_release: app.add_contact_dialog()
       </code> <br>
       <b>.py file</b>
-      <code class="python" data-line-numbers="1-12" data-trim data-noescape>
+      <code class="python" data-trim data-noescape>
         class ContactManagerApp(MDApp):
           ...
           def add_contact_dialog(self):
-              self.dialog = MDDialog(title="Add Contact", type="custom", content_cls=AddContactContent(),
-                                     buttons=[MDFlatButton(text="CANCEL", theme_text_color="Custom",
-                                                           text_color=self.theme_cls.primary_color,
-                                                           on_release=lambda x: self.dialog.dismiss()),
-                                              MDFlatButton(text="OK", theme_text_color="Custom",
-                                                           text_color=self.theme_cls.primary_color,
-                                                           on_release=lambda x: self.add_contact()),],
-                              )
+              self.dialog = MDDialog(title="Add Contact", 
+                                     content_cls=AddContactContent(),..)
               self.dialog.open()
       </code>
       </pre>
@@ -435,59 +404,7 @@
       </aside>
     </section>
 
-    <section data-auto-animate="">
-      <h3>Ease of Development 💻</h3>
-      <div id="left">
-      <pre style="font-size: 32%;width: 44.5vw !important;text-align: left;">
-      <b>.kv file</b>
-      <code  data-line-numbers="1-11" data-trim data-noescape>
-        <.AddContactContent>:
-          orientation: 'vertical'
-          ...
-          MDTextField:
-              hint_text: "Name"
-          MDTextField:
-              hint_text: "Address"
-          MDTextField:
-              hint_text: "City"
-          MDTextField:
-              hint_text: "Mobile"
-
-        MDFloatingActionButton:
-          icon: "plus" # comes bundled with icons
-          background_color: 1, 0, 1, 0
-          pos_hint: {'center_x': .95, 'center_y': .5}
-          on_release: app.add_contact_dialog()
-      </code> <br>
-      <b>.py file</b>
-      <code class="python" data-line-numbers="1-12" data-trim data-noescape>
-        class ContactManagerApp(MDApp):
-          ...
-          def add_contact_dialog(self):
-              self.dialog = MDDialog(title="Add Contact", type="custom", content_cls=AddContactContent(),
-                                     buttons=[MDFlatButton(text="CANCEL", theme_text_color="Custom",
-                                                           text_color=self.theme_cls.primary_color,
-                                                           on_release=lambda x: self.dialog.dismiss()),
-                                              MDFlatButton(text="OK", theme_text_color="Custom",
-                                                           text_color=self.theme_cls.primary_color,
-                                                           on_release=lambda x: self.add_contact()),],
-                              )
-              self.dialog.open()
-      </code>
-      </pre>
-    </div>
-    <div id="right">
-      <img style="width: 50%;margin: 34px -19px 0px 0px;" src="img/kivy_add_no_keyboard.png" />
-    </div>
-      <aside class="notes">
-        1. You can create custom text field using TextFieldStyle
-        2. You can ofcourse do this directly with widgets in PySide6. The Textfield becomes a QTextField class and you can set the properties directly.
-           But, things like RoundButton that exists in QtQuick does not exists in Widgets. Manually creating it required creating a stylesheet which is a lot of code.
-        3. No API examples and usage examples. The documentation is not as good as PySide6.
-      </aside>
-    </section>
-
-    <section>
+    <!-- <section>
       <h3>How to deploy?🛠️</h3>
       <div id="left30">
       <ul style="font-size: 80%;">
@@ -505,10 +422,10 @@
           </code>
         </pre>
       </li>
-      <!-- What is the app size? -->
-      </ul>
+       What is the app size? -->
+      <!-- </ul>
       </div>
-    </section>
+    </section>  -->
 
     <section>
       <h3><i class="green">Pros</i> and <i class="red">Cons</i> - Kivy</h3>
@@ -594,26 +511,9 @@
     <section>
       <h3>Ease of Development 💻</h3>
       <div id="left">
-          <pre style="font-size: 35%; width: 44.5vw !important;text-align: left;height: 28vw;overflow: hidden;">
-          <code  data-line-numbers="27-35|19-23|24|1-16" data-trim data-noescape>
-            ColumnLayout {
-              id: grid
-              ...
-              TextField {
-                id: fullName
-                focus: true
-                Layout.fillWidth: true; Layout.minimumWidth: grid.minimumInputSize;Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
-                placeholderText: qsTr("Full Name")
-              }
-              TextField {
-                  id: address
-                  ...
-                  placeholderText: qsTr("Address")
-              }
-              ...
-            }
-
-            Dialog {
+          <pre style="font-size: 35%; width: 41vw !important;text-align: left;height: 18vw;overflow: hidden;">
+          <code  data-line-numbers="10-18|3-6|7" data-trim data-noescape>
+            ContactDialog {
               id: dialog
               function createContact() {
                   dialog.title = qsTr("Add Contact");
@@ -698,7 +598,7 @@
       </div>
     </section>
 
-    <section>
+    <!-- <section>
       <h3>How to deploy?🛠️</h3>
       <ul style="font-size: 80%;">
         <li><i class="yellow">Prerequisites</i>
@@ -721,7 +621,7 @@
         - Among other dependencies Flutter SDK is a major prerequisite
 
       </aside>
-    </section>
+    </section> -->
 
   <section>
     <h3><i class="green">Pros</i> and <i class="red">Cons</i> - PySide6</h3>
@@ -740,6 +640,7 @@
         <h5><i class="red">Cons</i></h5>
       <ul>
         <li>Steep learning curve</li>
+        <li>Needs to manually create Android wheels</li>
         <li>No iOS and WebAssembly support</li>
         <li>Needs a Unix host system</li>
       </ul>
@@ -883,7 +784,7 @@
   <!-- 2. Create hidden header/footer <div> -->
   <div id="hidden" style="display:none;">
     <div id="header">
-      <div id="header-left"><img src="img/qt.png" style="width: 100px;margin-left: 30px;" /></div>
+      <!-- <div id="header-left"><img src="img/qt.png" style="width: 100px;margin-left: 30px;" /></div> -->
       <!-- <div id="footer-left"></div> -->
       <div id="header-right"></div>
       <div id="footer-left">
