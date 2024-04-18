@@ -255,7 +255,7 @@
                   add_dialog.open = True
                   page.update()
 
-                page.floating_action_button = flet.FloatingActionButton(icon=ft.icons.ADD, 
+                page.floating_action_button = flet.FloatingActionButton(icon=ft.icons.ADD,
                                                                         on_click=add_pressed)
           </code>
           </pre>
@@ -394,7 +394,7 @@
         class ContactManagerApp(MDApp):
           ...
           def add_contact_dialog(self):
-              self.dialog = MDDialog(title="Add Contact", 
+              self.dialog = MDDialog(title="Add Contact",
                                      content_cls=AddContactContent(),..)
               self.dialog.open()
       </code>
@@ -631,7 +631,6 @@
     </section> -->
 
   <section>
-<<<<<<< Updated upstream
     <h3><i class="green">Pros</i> and <i class="red">Cons</i> - PySide6</h3>
     <div id="left70" style="font-size: 70%;display: flex;width: 100%;">
       <div>
@@ -654,29 +653,10 @@
       </ul>
       </div>
       </div>
-=======
-    <h3>Pros and Cons - PySide6</h3>
-    <div id="left70" style="font-size: 70%;">
-    <h5>Pros</h5>
-    <ul>
-      <li>More features and modules than Kivy and Flet</li>
-      <li>Lot of resources</li>
-      <li>Big and active community</li>
-      <li>Easy switch to C++ - high performance</li>
-      <li>Lot of tools eg: Qt Designer, Qt Design Studio etc</li>
-    </ul>
-    <h5>Cons</h5>
-    <ul>
-      <li>No bundled icons</li>
-      <li>Steep learning curve</li>
-      <li>No iOS and WebAssembly support</li>
-      <li>Needs a Unix host system</li>
-    </ul>
-    </div>
->>>>>>> Stashed changes
     <aside class="notes">
       1. More suitable for big projects.
       2. Ideal when your application uses system services and hardware.
+      3. PySide6 has about 3576 answere questions on stackoverflow.
     </aside>
   </section>
   </section>
@@ -748,9 +728,9 @@
         </tr>
         <tr>
           <th scope="row" style="font-size: 35px;">App Size</th>
-          <td style="font-size: 30px;"></td>
-          <td style="font-size: 30px;"></td>
-          <td style="font-size: 30px;"></td>
+          <td style="font-size: 30px;">43 mB</td>
+          <td style="font-size: 30px;">20.5 mB</td>
+          <td style="font-size: 30px;">80 mB</td>
         </tr>
       </tbody>
     </table>
