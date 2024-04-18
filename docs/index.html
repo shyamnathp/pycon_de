@@ -46,12 +46,13 @@
           <img style="width: 80%;margin-right: 50px;" src="img/Android_Robot.png" />
         </div>
         <aside class="notes">
-          I am guessing that some of you develop GUI applications and surely you are all Python developers.
-          You want to develop a cross-platform application with Desktop and Android support.
-          You being a Python developer would like a GUI Python framework to do it.
-          This talk gives a general overview of the current status of Python ecosystem in supporting Android and
-          a comparison of three of the Python GUI frameworks that support Android. The comparsion is done with developing a simple Contact Manager application.
-          Hopefully at the end of this talk you will have a better understanding of the Python GUI frameworks that support Android and which one to choose for your next project.
+          - I am guessing that some of you develop GUI applications and surely you are all Python developers.
+          - You want to develop a cross-platform application with Desktop and Android support.
+          - You being a Python developer would like a GUI Python framework to do it.
+          - This talk gives a general overview of the current status of Python ecosystem in supporting Android and
+          a comparison of three of the Python GUI frameworks that support Android by creating a Contact Manager application. We will look at how the GUI itself differs and some of the pros and cons
+          of each framework.
+          - Hopefully at the end of this talk you will have a better understanding of the Python GUI frameworks that support Android and which one to choose for your next project.
         </aside>
       </section>
       <!--***************************************************************************-->
@@ -74,14 +75,18 @@
           </p>
         </div>
         <aside class="notes">
-          Unbaised opinion about the frameworks
-          Althought in Qt, I have never developed a GUI application. I will be specially focusing on how easy it was for me as beginner to get started with some of these frameworks.
+          -Unbaised opinion about the frameworks
+          -Althought in Qt, I have never developed a GUI application
+          -From the perspective of a beginner
         </aside>
       </section>
 
       <section>
         <h2>Why is <i class="android-green">Android</i> an important platform ?🦾</h2>
         <img style="width: 60%;" src="img/os_barplot.png" />
+        <aside class="notes">
+          - percentage of operating system usages as of Feb 2024
+        </aside>
       </section>
 
       <section>
@@ -91,8 +96,9 @@
         </h4>
         <img class="fragment" style="width: 30%;" src="img/but_why.gif" />
         <aside class="notes">
-          Python is the most popular language. But, it is not the best choice for Android development.
-          As most of you know already, Android is the OS that is most used in the world.
+          - Python is the most popular language
+          - where does Python stand in Android development?
+          - As most of you know already, Android is the OS that is most used in the world
         </aside>
       </section>
 
@@ -107,10 +113,10 @@
         </div>
         <img class="fragment" style="width: 30%;" src="img/but.gif" />
         <aside class="notes">
-          Among the more obvious reasons like native languages like Java and Kotlin are faster, there are other reasons like:
+           What are the challenges?
           1.One has to cross-compile CPython(since 3.6) to Android to obtain the necessary binaries, and Android has 4 targets. This is inspite of projects like Kivy, BeeWare existing for years
-          2.Applications should bundle the Python runtime, leading to bigger binary sizes
-          3.No native support for Python with Android NDK - Android works around JVM. So, you basically have to find a way to interface betweem Java and Python.
+          2.No native support for Python with Android NDK - Android works around JVM. So, you basically have to find a way to interface betweem Java and Python.
+          3.Applications should bundle the Python runtime, leading to bigger binary sizes
         </aside>
       </section>
 
@@ -140,7 +146,7 @@
           1. You can ofcourse have a webview application with react native frontend and python backend but having a standalone GUI framework helps in unifited development with just using Python.
           It also enables more fine grained control over UI components and interactions.
           2. All of these frameworks are cross-platform. If ones task is to develop only an Android appliction, then don't use Python.
-          3. The frameworks are all cross-platform. Using Python only makes sense for cross-platform. Otherwise, use Java or Kotlin.
+          3. All frameworks except Toga works around a theme that looks like the native Android theme.
         </aside>
       </section>
 
@@ -297,6 +303,7 @@
             <ul>
               <li>More modern UI</li>
               <li>Easy to get started with</li>
+              <li>Fully in Python</li>
               <li>Minimal API, but hightly customizable</li>
               <li>Cross-platform + WebAssembly</li>
               <li>Active and responsive community</li>
@@ -309,7 +316,7 @@
               <li>Still very new</li>
               <li>Limited resources online</li>
               <li>No visual designer</li>
-              <li>Not hardware access</li>
+              <li>No hardware access</li>
               <li>Not as mature as PySide6 and Kivy</li>
               <li>No localization</li>
             </ul>
@@ -332,7 +339,7 @@
       <h3>Kivy
         <img style="width: 50px; vertical-align: middle;" src="img/kivy_logo.png" />
       </h3>
-      <div id="left_center" style="display: flex"> 
+      <div id="left_center" style="display: flex">
         <ul style="font-size: 70%;">
           <li>Since 2012</li>
           <li>Two ways to create GUI
@@ -624,6 +631,7 @@
     </section> -->
 
   <section>
+<<<<<<< Updated upstream
     <h3><i class="green">Pros</i> and <i class="red">Cons</i> - PySide6</h3>
     <div id="left70" style="font-size: 70%;display: flex;width: 100%;">
       <div>
@@ -646,6 +654,26 @@
       </ul>
       </div>
       </div>
+=======
+    <h3>Pros and Cons - PySide6</h3>
+    <div id="left70" style="font-size: 70%;">
+    <h5>Pros</h5>
+    <ul>
+      <li>More features and modules than Kivy and Flet</li>
+      <li>Lot of resources</li>
+      <li>Big and active community</li>
+      <li>Easy switch to C++ - high performance</li>
+      <li>Lot of tools eg: Qt Designer, Qt Design Studio etc</li>
+    </ul>
+    <h5>Cons</h5>
+    <ul>
+      <li>No bundled icons</li>
+      <li>Steep learning curve</li>
+      <li>No iOS and WebAssembly support</li>
+      <li>Needs a Unix host system</li>
+    </ul>
+    </div>
+>>>>>>> Stashed changes
     <aside class="notes">
       1. More suitable for big projects.
       2. Ideal when your application uses system services and hardware.
@@ -806,6 +834,14 @@
     else {
       $('div.reveal').append(header);
      }
+
+     // speaker notes line break
+     let notes = document.querySelectorAll('aside.notes');
+     notes.forEach(n => {
+       let html = n.innerHTML;
+       html = html.trim().replace(/\n/g, '<br/>');
+       n.innerHTML = html;
+     });
   </script>
 </body>
 </html>
