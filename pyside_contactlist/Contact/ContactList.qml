@@ -20,12 +20,16 @@ ApplicationWindow {
     title: qsTr("Contact List")
 
     header: ToolBar {
+        Material.primary: "#7886CB"
         RowLayout {
+            anchors.fill: parent
             width: parent.width
-            height: 70
+            height: parent.height
             Label {
                 text: "ContactManager"
-                font.pixelSize: 17
+                anchors.centerIn: parent
+                font.pixelSize: 20
+                height: 100
                 elide: Label.ElideRight
                 horizontalAlignment: Qt.AlignHCenter
                 verticalAlignment: Qt.AlignVCenter
@@ -33,6 +37,7 @@ ApplicationWindow {
             }
         }
         // background: Rectangle {
+        //     anchors.fill: parent
         //     color: "#7886CB"
         // }
     }
@@ -80,6 +85,7 @@ ApplicationWindow {
     }
 
     RoundButton {
+        id: roundButton
         text: qsTr("+")
         highlighted: true
         Material.elevation: 6
@@ -88,6 +94,10 @@ ApplicationWindow {
         anchors.margins: 10
         anchors.right: parent.right
         anchors.bottom: parent.bottom
+        background: Rectangle {
+            color: "#405085"
+            radius: roundButton.radius
+        }
         onClicked: {
             currentContact = -1
             contactDialog.createContact()
