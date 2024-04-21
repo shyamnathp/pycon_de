@@ -46,9 +46,7 @@
           <img style="width: 80%;margin-right: 50px;" src="img/Android_Robot.png" />
         </div>
         <aside class="notes">
-          - I am guessing that some of you develop GUI applications and surely you are all Python developers.
-          - You want to develop a cross-platform application with Desktop and Android support.
-          - You being a Python developer would like a GUI Python framework to do it.
+          - Welcome to my presentation where i take you an exciting journey across Android development with Python
           - This talk gives a general overview of the current status of Python ecosystem in supporting Android and
           a comparison of three of the Python GUI frameworks that support Android by creating a Contact Manager application. We will look at how the GUI itself differs and some of the pros and cons
           of each framework.
@@ -207,6 +205,7 @@
             Flet
             <img style="width: 50px; margin: 0%;" src="img/flet.png" />
           </h3>
+          <div style="margin-left: 10%;">
           <div id="left">
             <ul style="font-size: 70%;">
               <li>Since 2023</li>
@@ -217,8 +216,9 @@
               <!-- <li>Apache-2.0 license</li> -->
             </ul>
           </div>
-          <div id="right" style="position: relative; left: 0%;">
+          <div id="right" style="position: relative; left: 0%; text-align: unset;">
             <img style="width: 50%;" src="img/flet_github.png" />
+          </div>
           </div>
           <aside class="notes">
             - new kid in the block, as such no baggage.
@@ -240,10 +240,9 @@
           </div>
         </section>
 
-        <section>
-          <h3>Contact Manager Application - Flet</h3>
+        <!-- <section>
           <img src="img/flet_image_code.png" style="width: 130%; height: 100%"/>
-        </section>
+        </section> -->
 
         <!-- <section>
           <h3>Ease of Development 💻</h3>
@@ -383,14 +382,14 @@
     </section>
 
     <section data-auto-animate="">
-      <h3>Contact Manager Application - Kivy</h3>
+      <!-- <h3>Contact Manager Application - Kivy</h3> -->
       <img src="img/kivy_image_labelled.png"/>
     </section>
 
-    <section data-auto-animate="">
-      <h3>Contact Manager Application - Kivy</h3>
+    <!-- <section data-auto-animate="">
+      <h3>Contact Manager Application - Kivy</h3> 
       <img src="img/kivy_image_code_1.png"/>
-    </section>
+    </section>  -->
 
 <!--
     <section data-auto-animate="">
@@ -456,9 +455,9 @@
         <div>
           <h5><i class="green">Pros</i></h5>
         <ul>
-          <li>KivyMDBuilder - Interactive tool</li>
+          <li>Visual Designer - KivyMDBuilder</li>
           <li>kv language is easy to learn</li>
-          <li>Both PySide6 and Flet uses buildozer</li>
+          <li>Both PySide6 and Flet uses `buildozer`</li>
           <li>More modules than Flet</li>
           <li>Active community</li>
         </ul>
@@ -466,6 +465,7 @@
         <div>
           <h5><i class="red">Cons</i></h5>
         <ul>
+          <li>Need to learn a new language</li>
           <li>Not as modern as Flet even with KivyMD</li>
           <li>Not as mature as Qt</li>
           <li>Not ideal for Desktop platforms</li>
@@ -476,11 +476,12 @@
         </div>
         </div>
       <aside class="notes">
-        All of these tools lead to large apk sizes and slow startup time.
-        Lot of broken examples for kivyMD and just 3 tutorials for Kivy.
-        There are more resources than flet, but still lacking as compared to Qt
-        on_touch_down(touch). Type of touch is not documented in the API reference
-        What is an Accordion?
+        - All of these tools lead to large apk sizes and slow startup time.
+        - Lot of broken examples for kivyMD and just 3 tutorials for Kivy.
+        - There are more resources than flet, but still lacking as compared to Qt
+        - on_touch_down(touch). Type of touch is not documented in the API reference
+        - What is an Accordion?
+        - More modules than Flet - graphics module is more advanced, network, storage, multistroke  
       </aside>
     </section>
   </section>
@@ -498,7 +499,7 @@
             Two ways to create GUIs
             <ul style="font-size: 80%;">
             <li>Qt Widgets - Python and C++</li>
-            <li>Qt Quick - QML and Python/C++</li>
+            <li>Qt Quick (Material Design) - QML and Python/C++</li>
             </ul>
           </li>
           <li>Visual Designers
@@ -531,10 +532,10 @@
       </div>
     </section>
 
-    <section data-auto-animate="">
+    <!-- <section data-auto-animate="">
       <h3>Contact Manager Application - PySide</h3>
       <img src="img/pyside_image_code.png"/>
-    </section>
+    </section> -->
 
     <!-- <section>
       <h3>Ease of Development 💻</h3>
@@ -667,6 +668,7 @@
       <div>
         <h5><i class="red">Cons</i></h5>
       <ul>
+        <li>Need to learn a new language</li>
         <li>Steep learning curve</li>
         <li>Needs to manually create Android wheels</li>
         <li>No iOS and WebAssembly support</li>
@@ -683,7 +685,7 @@
   </section>
 
   <section data-auto-animate>
-    <h3>Python Packages Support 📦</h3>
+    <h3><i class="yellow">Python</i> Packages Support 📦</h3>
     <!-- <div id="left_center"> -->
     <p style="font-size: 80%;">
       Pure Python Packages - Platform Independent
@@ -692,7 +694,7 @@
   </section>
 
   <section data-auto-animate>
-    <h3>Python Packages Support 📦</h3>
+    <h3><i class="yellow">Python</i> Packages Support 📦</h3>
     <p style="font-size: 80%;">
       Pure Python Packages - Platform Independent
     </p>
